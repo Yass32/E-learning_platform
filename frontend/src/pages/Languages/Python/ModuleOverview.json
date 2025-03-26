@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "name": "1. Introduction",
+        "lessons": [
+            { "id": 1, "name": "a. Python Basics", "path": "/python/module1/lesson1", "componentKey": "PyM1Lesson1", "isCompleted": false },
+            { "id": 2, "name": "b. Variables & Data Types", "path": "/python/module1/lesson2", "componentKey": "PyM1Lesson2", "isCompleted": false },
+            { "id": 3, "name": "c. Operators", "path": "/python/module1/lesson3", "componentKey": "PyM1Lesson3", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "2. Control Flow",
+        "lessons": [
+            { "id": 4, "name": "a. Conditional Statements", "path": "/python/module2/lesson1", "componentKey": "PyM2Lesson1", "isCompleted": false },
+            { "id": 5, "name": "b. Loops", "path": "/python/module2/lesson2", "componentKey": "PyM2Lesson2", "isCompleted": false },
+            { "id": 6, "name": "c. Comprehensions", "path": "/python/module2/lesson3", "componentKey": "PyM2Lesson3", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "3. Functions & Modules",
+        "lessons": [
+            { "id": 7, "name": "a. Functions", "path": "/python/module3/lesson1", "componentKey": "PyM3Lesson1", "isCompleted": false },
+            { "id": 8, "name": "b. Python Modules", "path": "/python/module3/lesson2", "componentKey": "PyM3Lesson2", "isCompleted": false },
+            { "id": 9, "name": "c. Exception Handling", "path": "/python/module3/lesson3", "componentKey": "PyM3Lesson3", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "4. Data Structures",
+        "lessons": [
+            { "id": 10, "name": "a. Lists & Tuples", "path": "/python/module4/lesson1", "componentKey": "PyM4Lesson1", "isCompleted": false },
+            { "id": 11, "name": "b. Dictionaries & Sets", "path": "/python/module4/lesson2", "componentKey": "PyM4Lesson2", "isCompleted": false }
+        ]
+    },
+    
+    {
+        "id": 5,
+        "name": "5. Object Oriented Programming",
+        "lessons": [
+            { "id": 12, "name": "a. Classes & Objects", "path": "/python/module5/lesson1", "componentKey": "PyM5Lesson1", "isCompleted": false },
+            { "id": 13, "name": "b. OOP Principles", "path": "/python/module5/lesson2", "componentKey": "PyM5Lesson2", "isCompleted": false }
+        ]
+    }
+
+]
+
+

@@ -1,0 +1,104 @@
+
+[
+  {
+    "question": "Which of the following is NOT a valid way to declare a variable in JavaScript?",
+    "options": [
+      "var",
+      "let",
+      "const",
+      "declare"
+    ],
+    "answer": "declare"
+  },
+  {
+    "question": "How do you access the value of a property in an object?",
+    "options": [
+      "object[property]",
+      "object.property",
+      "Both A and B",
+      "None of the above"
+    ],
+    "answer": "Both A and B"
+  },
+  {
+    "question": "What is the output of the following code snippet?\n\nconst obj = { a: 1, b: 2 };\nconsole.log(obj.c);",
+    "options": [
+      "1",
+      "2",
+      "undefined",
+      "Error"
+    ],
+    "answer": "undefined"
+  },
+  {
+    "question": "Which keyword is used to define a class in JavaScript?",
+    "options": [
+      "function",
+      "class",
+      "constructor",
+      "prototype"
+    ],
+    "answer": "class"
+  },
+  {
+    "question": "How can you select an element with the ID 'myElement' in the DOM?",
+    "options": [
+      "document.querySelector('#myElement')",
+      "document.getElementById('myElement')",
+      "Both A and B",
+      "None of the above"
+    ],
+    "answer": "Both A and B"
+  },
+  {
+    "question": "What does the 'async' keyword indicate when used with a function?",
+    "options": [
+      "The function will execute synchronously",
+      "The function will return a Promise",
+      "The function will not run",
+      "None of the above"
+    ],
+    "answer": "The function will return a Promise"
+  },
+  {
+    "question": "Which method is used to fetch data from an API in JavaScript?",
+    "options": [
+      "fetch()",
+      "getRequest()",
+      "httpRequest()",
+      "apiCall()"
+    ],
+    "answer": "fetch()"
+  },
+  {
+    "question": "What will be logged to the console?\n\nconst promise = new Promise((resolve, reject) => resolve('Success'));\npromise.then(console.log);",
+    "options": [
+      "Promise",
+      "Success",
+      "undefined",
+      "Error"
+    ],
+    "answer": "Success"
+  },
+  {
+    "question": "What is the purpose of the 'this' keyword in JavaScript?",
+    "options": [
+      "It refers to the global object in all contexts",
+      "It refers to the object it belongs to",
+      "It always refers to the parent object",
+      "None of the above"
+    ],
+    "answer": "It refers to the object it belongs to"
+  },
+  {
+    "question": "Which of the following methods is used to add an event listener to an element in JavaScript?",
+    "options": [
+      "element.addEventListener()",
+      "element.attachEvent()",
+      "element.onEvent()",
+      "element.listenToEvent()"
+    ],
+    "answer": "element.addEventListener()"
+  }
+]
+

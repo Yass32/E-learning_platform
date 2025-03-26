@@ -1,0 +1,104 @@
+[
+    {
+      "question": "Which of the following is a valid variable name in Python?",
+      "options": [
+        "1variable",
+        "variable_name",
+        "variable-name",
+        "variable.name"
+      ],
+      "answer": "variable_name"
+    },
+    {
+      "question": "What will be the output of the expression 10 % 3 in Python?",
+      "options": [
+        "1",
+        "3",
+        "7",
+        "10"
+      ],
+      "answer": "1"
+    },
+    {
+      "question": "Which Python keyword is used for conditional branching?",
+      "options": [
+        "loop",
+        "if",
+        "switch",
+        "case"
+      ],
+      "answer": "if"
+    },
+    {
+      "question": "What will be the output of the following code snippet?\n\ndef example_function(a, b=5):\n    return a + b\n\nprint(example_function(3))",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "Error"
+      ],
+      "answer": "8"
+    },
+    {
+      "question": "Which data structure in Python is immutable?",
+      "options": [
+        "List",
+        "Set",
+        "Dictionary",
+        "Tuple"
+      ],
+      "answer": "Tuple"
+    },
+    {
+      "question": "What is the time complexity of accessing an element in a Python dictionary?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(log n)",
+        "O(n^2)"
+      ],
+      "answer": "O(1)"
+    },
+    {
+      "question": "What will be the output of the following code snippet?\n\nclass MyClass:\n    def __init__(self, value):\n        self.value = value\n\nobj = MyClass(10)\nprint(obj.value)",
+      "options": [
+        "None",
+        "10",
+        "MyClass",
+        "Error"
+      ],
+      "answer": "10"
+    },
+    {
+      "question": "Which of the following is NOT a valid Python data type?",
+      "options": [
+        "String",
+        "Boolean",
+        "Character",
+        "List"
+      ],
+      "answer": "Character"
+    },
+    {
+      "question": "What will be the output of the following code snippet?\n\nmy_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)",
+      "options": [
+        "[1, 2, 3]",
+        "[4, 1, 2, 3]",
+        "[1, 2, 3, 4]",
+        "Error"
+      ],
+      "answer": "[1, 2, 3, 4]"
+    },
+    {
+      "question": "Which operator is used to check if two variables refer to the same object in Python?",
+      "options": [
+        "==",
+        "is",
+        "in",
+        "equals"
+      ],
+      "answer": "is"
+    }
+]
+
+  

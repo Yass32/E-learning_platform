@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "1. Introduction to Java",
+        "lessons": [
+            { "id": 1, "name": "a. Java Basics", "path": "/java/module1/lesson1", "componentKey": "JvM1Lesson1", "isCompleted": false },
+            { "id": 2, "name": "b. Syntax & Data Types ", "path": "/java/module1/lesson2", "componentKey": "JvM1Lesson2", "isCompleted": false },
+            { "id": 3, "name": "c. Java Operators ", "path": "/java/module1/lesson3", "componentKey": "JvM1Lesson3", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "2. Methods in Java",
+        "lessons": [
+            { "id": 4, "name": "a. Defining Methods", "path": "/java/module2/lesson1", "componentKey": "JvM2Lesson1", "isCompleted": false },
+            { "id": 5, "name": "b. Method Overloading", "path": "/java/module2/lesson2", "componentKey": "JvM2Lesson2", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "3. Object Oriented Programming",
+        "lessons": [
+            { "id": 6, "name": "a. Classes & Objects", "path": "/java/module3/lesson1", "componentKey": "JvM3Lesson1", "isCompleted": false },
+            { "id": 7, "name": "b. OOP principles", "path": "/java/module3/lesson2", "componentKey": "JvM3Lesson2", "isCompleted": false },
+            { "id": 8, "name": "b. Interfaces & Abstract Classes", "path": "/java/module3/lesson3", "componentKey": "JvM3Lesson3", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "4. Exception Handling",
+        "lessons": [
+            { "id": 9, "name": "a. Handling Exceptions", "path": "/java/module4/lesson1", "componentKey": "JvM4Lesson1", "isCompleted": false },
+            { "id": 10, "name": "b. Throwing Custom Exceptions", "path": "/java/module4/lesson2", "componentKey": "JvM4Lesson2", "isCompleted": false }
+        ]
+    }
+]
+
+

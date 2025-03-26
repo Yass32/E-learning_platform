@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Which of the following is a valid way to declare a variable in Java?",
+    "options": [
+      "int number = 10;",
+      "var number = 10;",
+      "number int = 10;",
+      "integer number = 10;"
+    ],
+    "answer": "int number = 10;"
+  },
+  {
+    "question": "Which keyword is used to define a method in Java?",
+    "options": [
+      "function",
+      "method",
+      "def",
+      "void"
+    ],
+    "answer": "void"
+  },
+  {
+    "question": "Which of the following is NOT a principle of Object-Oriented Programming?",
+    "options": [
+      "Encapsulation",
+      "Inheritance",
+      "Polymorphism",
+      "Compilation"
+    ],
+    "answer": "Compilation"
+  },
+  {
+    "question": "How do you create an object of a class in Java?",
+    "options": [
+      "ClassName obj = new ClassName();",
+      "ClassName obj = ClassName();",
+      "ClassName obj = new();",
+      "obj = new ClassName();"
+    ],
+    "answer": "ClassName obj = new ClassName();"
+  },
+  {
+    "question": "Which data structure is used to implement a stack in Java?",
+    "options": [
+      "Array",
+      "LinkedList",
+      "Both A and B",
+      "None of the above"
+    ],
+    "answer": "Both A and B"
+  },
+  {
+    "question": "What is the default value of a boolean variable in Java?",
+    "options": [
+      "true",
+      "false",
+      "null",
+      "0"
+    ],
+    "answer": "false"
+  },
+  {
+    "question": "Which method is used to read data from a file in Java?",
+    "options": [
+      "File.read()",
+      "Scanner.nextLine()",
+      "BufferedReader.read()",
+      "Both B and C"
+    ],
+    "answer": "Both B and C"
+  },
+  {
+    "question": "Which exception is thrown when dividing a number by zero in Java?",
+    "options": [
+      "ArithmeticException",
+      "NullPointerException",
+      "ArrayIndexOutOfBoundsException",
+      "NumberFormatException"
+    ],
+    "answer": "ArithmeticException"
+  },
+  {
+    "question": "Which of the following is NOT a valid access modifier in Java?",
+    "options": [
+      "private",
+      "public",
+      "protected",
+      "internal"
+    ],
+    "answer": "internal"
+  },
+  {
+    "question": "What is the use of the 'finally' block in Java?",
+    "options": [
+      "To handle exceptions",
+      "To execute important code after a try-catch block",
+      "To terminate the program",
+      "None of the above"
+    ],
+    "answer": "To execute important code after a try-catch block"
+  }
+]

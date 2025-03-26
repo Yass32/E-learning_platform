@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1,
+        "name": "1. Introduction",
+        "lessons": [
+            { "id": 1, "name": "a. Intro to JavaScript", "path": "/javascript/module1/lesson1", "componentKey": "JsM1Lesson1", "isCompleted": false },
+            { "id": 2, "name": "b. Uses of JavaScript", "path": "/javascript/module1/lesson2", "componentKey": "JsM1Lesson2", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "2. JavaScript Basics",
+        "lessons": [
+            { "id": 3, "name": "a. Variables & Data Types", "path": "/javascript/module2/lesson1", "componentKey": "JsM2Lesson1", "isCompleted": false },
+            { "id": 4, "name": "b. Operators", "path": "/javascript/module2/lesson2", "componentKey": "JsM2Lesson2", "isCompleted": false },
+            { "id": 5, "name": "c. Conditional", "path": "/javascript/module2/lesson3", "componentKey": "JsM2Lesson3", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "3. Objects and OOP",
+        "lessons": [
+            { "id": 6, "name": "a. Objects in JavaScript", "path": "/javascript/module3/lesson1", "componentKey": "JsM3Lesson1", "isCompleted": false },
+            { "id": 7, "name": "b. Encapsulation", "path": "/javascript/module3/lesson2", "componentKey": "JsM3Lesson2", "isCompleted": false },
+            { "id": 8, "name": "c. Inheritence", "path": "/javascript/module3/lesson3", "componentKey": "JsM3Lesson3", "isCompleted": false }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "4. JavaScript and the DOM",
+        "lessons": [
+            { "id": 9, "name": "a. Document Object Model", "path": "/javascript/module4/lesson1", "componentKey": "JsM4Lesson1", "isCompleted": false },
+            { "id": 10, "name": "b. Selecting Elements", "path": "/javascript/module4/lesson2", "componentKey": "JsM4Lesson2", "isCompleted": false }
+        ]
+    },
+    
+    {
+        "id": 5,
+        "name": "5. Asynchronous JavaScript",
+        "lessons": [
+            { "id": 11, "name": "a. Async Programming", "path": "/javascript/module5/lesson1", "componentKey": "JsM5Lesson1", "isCompleted": false },
+            { "id": 12, "name": "b. Promises & Callbacks", "path": "/javascript/module5/lesson2", "componentKey": "JsM5Lesson2", "isCompleted": false }
+        ]
+    }
+
+]
+
+
