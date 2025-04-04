@@ -1,12 +1,8 @@
 // Import necessary modules
 import axios from 'axios'; // Axios is used to make HTTP requests
 import dotenv from 'dotenv'; // dotenv helps manage environment variables
-import { maybeParseResponse } from 'openai/lib/ResponsesParser.mjs'; // OpenAI's response parser (not used in this code)
 
 dotenv.config(); // Load environment variables from a .env file
-
-// Define the API URL for OpenRouter's AI chat service
-const API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
 // Function to get AI-powered programming field recommendation
 export const getAIRecommendation = async (userAnswers) => {
@@ -44,7 +40,7 @@ export const getAIRecommendation = async (userAnswers) => {
 
         // Send a POST request to OpenRouter AI to get the recommendation
         const response = await axios.post(
-            API_URL, 
+            process.env.API_URL, // Use the API URL from environment variables
             {  
                 model: "deepseek/deepseek-chat-v3-0324:free", // AI model to use
                 messages: [

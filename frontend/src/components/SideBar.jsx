@@ -27,7 +27,7 @@ const SideBar = ({name, profilePic}) => {
                 <div className="flex items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 ">
                 {profilePic? 
                     <img src={profilePic} alt="profile_picture"
-                        className="w-10 h-10 rounded-full mb-4"
+                        className="w-9 h-9 rounded-full mb-4"
                     /> :
                     <CgProfile className="text-3xl"/>
                 }

@@ -1,6 +1,7 @@
 import express from "express";
 import { pool } from "../server.js"; // Import the PostgreSQL connection pool
-import multer from "multer"; // Import multer for file uploads
+import multer from "multer"; // Import Multer (a middleware for handling file uploads)
+
 
 // Create a new router for user-related routes
 const router = express.Router();
@@ -304,8 +305,7 @@ router.get('/:student_id/progress/:course_id', async (request, response) => {
 
 
 
-// Import Multer (a middleware for handling file uploads)
-const multer = require("multer");
+
 
 // Configure multer storage settings
 const storage = multer.diskStorage({
