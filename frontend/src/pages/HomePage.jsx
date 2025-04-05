@@ -25,15 +25,15 @@ const HomePage = () => {
 
             {/* Content */}
             <div className="relative z-20 flex flex-col items-center justify-center w-[60%] text-center p-6 m-auto">            
-                <p className="text-2xl font-bold text-[#F2F0F4] mb-4">
+                <p className="text-4xl font-bold text-[#F2F0F4] mb-4">
                     Code Ed: Learn Programming Through Practice
                 </p>
-                <p className="text-sm text-[#DCD7E5] mb-6">
+                <p className="text-lg text-[#DCD7E5] mb-6">
                     Immerse yourself in an interactive learning journey, where you will apply your knowledge through practical coding exercises and recieve personalized support. 
                 </p>
                 <Link to="/register"
                 className="bg-rose-600 text-center px-3 py-1 rounded-md hover:bg-rose-800 transition-all duration-200 animate-bounce ">
-                    <span className="text-white text-xs">Get Started</span>
+                    <span className="text-white font-semibold">Get Started</span>
                 </Link>
             </div>
         </div>
@@ -46,24 +46,24 @@ const HomePage = () => {
             
             {/* Content */}
             <div className="relative z-20 w-[80%] text-left p-6 m-auto">            
-                <p className="text-2xl font-bold text-[#F2F0F4] mb-4">
+                <p className="text-4xl font-bold text-[#F2F0F4] mb-4">
                     Real-time Feedback And Auto Grading
                 </p>
-                <div className="grid grid-cols-3 gap-4 text-[#DCD7E5]">
+                <div className="grid grid-cols-3 gap-4 text-[#DCD7E5] text-lg">
                     <p className="p-2"> 
                         <MdOutlineFeedback className='text-rose-600 size-7'/>
                         <span className='block font-bold'>Instant Feedback</span>
-                        <span className='block font-thin text-sm'>Receive immediate feedback on your code as you write, with syntax highlighting, error messages, and debugging suggestions.</span> 
+                        <span className='block font-thin '>Receive immediate feedback on your code as you write, with syntax highlighting, error messages, and debugging suggestions.</span> 
                     </p>
                     <p className="p-2"> 
                         <RiRobot2Line className='text-balance text-xs text-rose-600 size-7'/>
                         <span className='block font-bold'>Automated Grading</span>
-                        <span className='block font-thin text-sm'>Our AI-powered system automatically grades your assignments, providing accurate and consistent evaluations of your progress.</span> 
+                        <span className='block font-thin '>Our AI-powered system automatically grades your assignments, providing accurate and consistent evaluations of your progress.</span> 
                     </p>
                     <p className="p-2"> 
                         <BsBarChartLine className='text-balance text-xs text-rose-600 size-7'/>
                         <span className='block font-bold'>Detailed Reports</span>
-                        <span className='block font-thin text-sm'>Track your performance with detailed reports on your code, areas for improvement, and overall progress.</span> 
+                        <span className='block font-thin '>Track your performance with detailed reports on your code, areas for improvement, and overall progress.</span> 
                     </p>
                 </div>
             </div>
@@ -76,10 +76,10 @@ const HomePage = () => {
 
             {/* Content */}
             <div className="relative z-20 w-[80%] text-left p-6 m-auto">             
-                <p className="text-2xl font-bold text-[#F2F0F4]  mb-4">
+                <p className="text-4xl font-bold text-[#F2F0F4]  mb-4">
                     Hands-on Coding Assignments
                 </p>
-                <div className="grid grid-cols-3 gap-4 text-[#DCD7E5]"> {[
+                <div className="grid grid-cols-3 gap-4 text-[#DCD7E5] text-lg"> {[
                     {title: 'Real-World Projects', description: 'Build practical applications and projects to solidify your understanding and gain valuable experience.' },
                     {title: 'Personalized Feedback', description: 'Receive personalized feedback on your assignments from experienced instructors to help you grow and refine your skills.'},
                     {title: 'Project-Based Learning', description: 'Build challenging projects that simulate real-world scenarios and allow you to apply your knowledge in a practical setting.'}
@@ -113,18 +113,18 @@ const HomePage = () => {
 
                     {/* Right Section: Content */}
                     <div className="flex flex-col items-center w-full ">
-                        <h2 className="text-2xl font-bold text-[#F2F0F4] py-4">Supported Languages:</h2>
-                        <div className="relative border-l-2 border-rose-600 "> {[
+                        <h2 className="text-4xl font-bold text-[#F2F0F4] py-4">Supported Languages:</h2>
+                        <div className="relative border-l-2 border-rose-600 text-lg"> {[
                             {title: 'Java', description: 'Master the fundamentals of object-oriented programming with Java, a robust and widely used language.' },
                             {title: 'JavaScript', description: 'Bring interactivity to web pages with JavaScript, a powerful scripting language used for web development.' },
                             {title: 'Python', description: 'Learn Python, a versatile and beginner-friendly language used for web development, data science, and automation.' }
                             ].map((item, index) => (
-                                <div key={index} className="mb-14 ml-6">
+                                <div key={index} className="mb-28 ml-6">
                                     <div className="absolute -left-4 w-8 h-8 bg-rose-600 rounded-full flex items-center justify-center text-white">
                                         {index + 1}
                                     </div>
                                     <p className=" font-bold text-[#DCD7E5]">{item.title}</p>
-                                    <p className="font-thin text-xs text-[#DCD7E5]">{item.description}</p>
+                                    <p className="font-thin text-[#DCD7E5]">{item.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -139,10 +139,10 @@ const HomePage = () => {
 
             {/* Content */}
             <div className="relative z-20  flex flex-col items-center justify-center w-[70%] text-left p-6 m-auto top-11">            
-                <p className="text-2xl font-bold text-[#F2F0F4] mb-4">
+                <p className="text-4xl font-bold text-[#F2F0F4] mb-4">
                     Join Our Community of Aspiring Developers
                 </p>
-                <p className="text-sm text-[#DCD7E5]">
+                <p className="text-lg text-[#DCD7E5]">
                     Connect with a vibrant community of fellow learners, share insights, ask questions, and collaborate on projects.
                 </p>
             </div>

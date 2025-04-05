@@ -8,7 +8,7 @@ const Navbar = () => {
         <nav className="fixed w-full h-10 bg-transparent backdrop-blur-md z-10">
             <div className="flex justify-between items-center w-full px-6 mt-2">
                 {/* Logo */}
-                <FaCode className="text-white text-2xl" id="logo" />
+                <FaCode className="text-white text-4xl" id="logo" />
                 {/* Log in Button */}
                 <Link to="/login"
                 className="bg-rose-600 px-4 rounded-lg hover:bg-rose-800 transition-all duration-200">
