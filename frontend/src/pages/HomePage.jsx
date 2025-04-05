@@ -84,7 +84,7 @@ const HomePage = () => {
                     {title: 'Personalized Feedback', description: 'Receive personalized feedback on your assignments from experienced instructors to help you grow and refine your skills.'},
                     {title: 'Project-Based Learning', description: 'Build challenging projects that simulate real-world scenarios and allow you to apply your knowledge in a practical setting.'}
                     ].map((item, index) => (
-                        <p className="p-3 text-balance text-xs bg-gradient-to-r from-[#581CA0]  to-[#371C9C] rounded-md shadow-lg hover:scale-105 transition duration-700 ease-in-out" key={index}>                         
+                        <p className="p-3 text-balance bg-gradient-to-r from-rose-500  to-rose-800 rounded-md shadow-lg hover:scale-105 transition duration-700 ease-in-out" key={index}>                         
                             <span className='block font-bold'>{item.title}</span>
                             <span className='font-thin'>{item.description}</span> 
                         </p>
@@ -119,7 +119,7 @@ const HomePage = () => {
                             {title: 'JavaScript', description: 'Bring interactivity to web pages with JavaScript, a powerful scripting language used for web development.' },
                             {title: 'Python', description: 'Learn Python, a versatile and beginner-friendly language used for web development, data science, and automation.' }
                             ].map((item, index) => (
-                                <div key={index} className="mb-28 ml-6">
+                                <div key={index} className="mb-24 ml-6">
                                     <div className="absolute -left-4 w-8 h-8 bg-rose-600 rounded-full flex items-center justify-center text-white">
                                         {index + 1}
                                     </div>

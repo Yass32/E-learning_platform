@@ -12,7 +12,7 @@ const Navbar = () => {
                 {/* Log in Button */}
                 <Link to="/login"
                 className="bg-rose-600 px-4 rounded-lg hover:bg-rose-800 transition-all duration-200">
-                    <span className="text-white text-sm">Log in</span>
+                    <span className="text-white text-lg font-semibold">Log in</span>
                 </Link>
             </div>
       </nav>
