@@ -15,11 +15,11 @@ const app = express();
 
 // PostgreSQL connection pool
 const pool = new Pool({
-    user: process.env.DB_USER,
-    host:process.env.DB_HOST,
+    user: process.env.PGUSER,
+    host:process.env.PGHOST,
     database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT 
+    password: process.env.PGPASSWORD,
+    port: process.env.PGPORT 
 });
 
 //adds the middleware to parse JSON bodies of incoming requests. Without this, request.body will be undefined
@@ -47,8 +47,8 @@ app.use("/uploads", express.static("uploads"));
 pool.connect()
 .then(() => {
     console.log("Connected to PostgreSQL database");
-    app.listen(process.env.DB_PORT, () => {
-        console.log(`App is listening to port: ${process.env.DB_PORT}`);
+    app.listen(process.env.PGPORT, () => {
+        console.log(`App is listening to port: ${process.env.PGPORT}`);
     });
 })
 .catch(error => {
