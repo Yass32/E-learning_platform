@@ -50,59 +50,59 @@ const RegisterPage = () => {
     
                     {/* Login Card */}
                     <div className="relative z-10 bg-white bg-opacity-20 backdrop-blur-lg rounded-lg p-5 w-full max-w-md h-[80%] shadow-lg">
-                        <FaCode className="text-rose-600 size-9 mx-auto" id="logo" />
-                        <h2 className="text-xl text-white font-semibold mb-4 text-center">
+                        <FaCode className="text-rose-600 size-20 mx-auto" id="logo" />
+                        <h2 className="text-4xl text-white font-semibold mb-4 text-center">
                         Sign up for an account
                         </h2>
     
-                        <form className="flex flex-col space-y-3 text-xs">
-                        {/* Name Field */}
-                        <div>
-                            <label className="block text-white mb-1" htmlFor="name">
-                            Full Name
-                            </label>
-                            <input type="text" id="name" placeholder="Enter your name"
-                            value={fullName} onChange={(e) => setFullName(e.target.value)}
-                            className="w-full p-1 rounded-md bg-white bg-opacity-70 text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                            />
-                        </div>
-    
-                        {/* Surname Field */}
-                        <div>
-                            <label className="block text-white mb-1" htmlFor="surname">
-                            Email Address
-                            </label>
-                            <input type="email" id="email" placeholder="Enter your email address"
-                            value={email} onChange={(e) => setEmail(e.target.value)}
-                            className="w-full p-1 rounded-md bg-white bg-opacity-70 text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                            />
-                        </div>
+                        <form className="flex flex-col space-y-3 text-2xl">
+                            {/* Name Field */}
+                            <div>
+                                <label className="block text-white mb-1" htmlFor="name">
+                                Full Name
+                                </label>
+                                <input type="text" id="name" placeholder="Enter your name"
+                                value={fullName} onChange={(e) => setFullName(e.target.value)}
+                                className="w-full p-1 rounded-md bg-white bg-opacity-70 text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                />
+                            </div>
+        
+                            {/* Surname Field */}
+                            <div>
+                                <label className="block text-white mb-1" htmlFor="surname">
+                                Email Address
+                                </label>
+                                <input type="email" id="email" placeholder="Enter your email address"
+                                value={email} onChange={(e) => setEmail(e.target.value)}
+                                className="w-full p-1 rounded-md bg-white bg-opacity-70 text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                />
+                            </div>
 
-    
-                        {/* Password Field */}
-                        <div>
-                            <label className="block text-white mb-1" htmlFor="password">
-                            Password
-                            </label>
-                            <input type="password" id="password" placeholder="Enter your password"
-                            value={password} onChange={(e) => setPassword(e.target.value)}
-                            className="w-full p-1 rounded-md bg-white bg-opacity-70 text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                            />
-                        </div>
-    
-                        {/* Submit Button */}
-                        <p className='mb-3 text-red-600'>{message}</p>
-                        <button type="button"
-                        className="w-full p-2 bg-rose-600 text-white font-bold rounded-md hover:bg-rose-700 transition duration-300" onClick={handleLogin}>
-                            Sign up
-                        </button>
-    
-                        <p className="mt-10 text-center text-sm/6 text-gray-500">
-                            Already a member?{' '}
-                            <a href="/login" className="font-semibold text-rose-600 hover:text-rose-800">
-                            Sign in here
-                            </a>
-                        </p>
+        
+                            {/* Password Field */}
+                            <div>
+                                <label className="block text-white mb-1" htmlFor="password">
+                                Password
+                                </label>
+                                <input type="password" id="password" placeholder="Enter your password"
+                                value={password} onChange={(e) => setPassword(e.target.value)}
+                                className="w-full p-1 rounded-md bg-white bg-opacity-70 text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                />
+                            </div>
+        
+                            {/* Submit Button */}
+                            <p className='mb-3 text-red-600'>{message}</p>
+                            <button type="button"
+                            className="w-full p-2 bg-rose-600 text-white font-bold rounded-md hover:bg-rose-700 transition duration-300" onClick={handleLogin}>
+                                Sign up
+                            </button>
+        
+                            <p className="mt-10 text-center text-sm/6 text-gray-500">
+                                Already a member?{' '}
+                                <a href="/login" className="font-semibold text-rose-600 hover:text-rose-800">
+                                Sign in here
+                                </a>
+                            </p>
                         </form>
                     </div>
                 </div>
