@@ -55,7 +55,7 @@ const RegisterPage = () => {
                         Sign up for an account
                         </h2>
     
-                        <form className="flex flex-col space-y-3 text-2xl">
+                        <form className="flex flex-col space-y-3 text-xl">
                             {/* Name Field */}
                             <div>
                                 <label className="block text-white mb-1" htmlFor="name">
