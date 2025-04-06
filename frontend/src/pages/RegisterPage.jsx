@@ -49,9 +49,9 @@ const RegisterPage = () => {
                     <div className="absolute inset-0 bg-black bg-opacity-40"></div>
     
                     {/* Login Card */}
-                    <div className="relative z-10 bg-white bg-opacity-20 backdrop-blur-lg rounded-lg p-5 w-full max-w-md h-[80%] shadow-lg">
-                        <FaCode className="text-rose-600 size-20 mx-auto" id="logo" />
-                        <h2 className="text-4xl text-white font-semibold mb-4 text-center">
+                    <div className="relative z-10 bg-white bg-opacity-20 backdrop-blur-lg rounded-lg p-5 w-full max-w-md shadow-lg">
+                        <FaCode className="text-rose-600 size-16 mx-auto" id="logo" />
+                        <h2 className="text-3xl text-white font-semibold mb-4 text-center">
                         Sign up for an account
                         </h2>
     
