@@ -3,6 +3,8 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import axios from 'axios';
 import Loading from './Loading';
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 const Questionnaire = () => {
     // State variables for handling modal, user answers, loading state, and recommendation results
@@ -20,7 +22,7 @@ const Questionnaire = () => {
         { id: 5, text: "Do you prefer structured (strict rules) or flexible (creative) projects?", options: ["Structured", "Flexible", "A mix of both"] },
         { id: 6, text: "Which of these excites you the most?", options: ["Designing user interfaces", "Creating server logic & APIs", "Analyzing data", "Securing systems"] },
         { id: 7, text: "How do you feel about debugging?", options: ["Love debugging", "Prefer writing clean code", "Don't like errors"] },
-        { id: 8, text: "What’s your ideal work environment?", options: ["Startup", "Big tech company", "Freelancing/remote", "Research & academia"] }
+        { id: 8, text: "What is your ideal work environment?", options: ["Startup", "Big tech company", "Freelancing/remote", "Research & academia"] }
     ];
 
     // Function to handle user's answer selection
@@ -34,7 +36,7 @@ const Questionnaire = () => {
     const handleSubmit = async () => {
         setLoading(true);
         try {
-            const response = await axios.post(`http://localhost:3000/api/recommendation`, { answers });
+            const response = await axios.post(`${VITE_BACKEND_URL}/api/recommendation`, { answers });
             setRecommendation(response.data.recommendation);
             console.log(response.data.recommendation);
             setOpen(false);

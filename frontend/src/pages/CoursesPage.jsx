@@ -65,7 +65,7 @@ const CoursesPage = () => {
             .then((response) => {
                 setEnrolledCourses(prev => [...new Set([...prev, course_id])]);
                 console.log(response);
-                navigate(`/${student_id}${path}`);
+                navigate(`https://e-learning-platform-client.onrender.com/${student_id}${path}`);
             })
             .catch((error) => {
                 console.log(error);
