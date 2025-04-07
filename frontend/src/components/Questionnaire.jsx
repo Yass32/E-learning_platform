@@ -124,7 +124,7 @@ const Questionnaire = () => {
                                             <button
                                                 type="button"
                                                 onClick={handleSubmit}
-                                                className="inline-flex w-full justify-center rounded-md bg-rose-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:hover:bg-rose-800 transition-all duration-200 sm:ml-3 sm:w-auto"
+                                                className="inline-flex w-full justify-center rounded-md bg-rose-600 px-3 py-2 font-semibold text-white shadow-xs hover:hover:bg-rose-800 transition-all duration-200 sm:ml-3 sm:w-auto"
                                             >
                                                 Get Recommendation
                                             </button>
@@ -132,7 +132,7 @@ const Questionnaire = () => {
                                                 type="button"
                                                 data-autofocus
                                                 onClick={() => setOpen(false)}
-                                                className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                                className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                             >
                                                 Cancel
                                             </button>

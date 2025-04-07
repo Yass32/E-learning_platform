@@ -28,6 +28,9 @@ export const getAIRecommendation = async (userAnswers) => {
     3. Step 3
     `;
 
+    console.log("OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY);
+    console.log("API_URL:", process.env.API_URL); // Log the generated prompt for debugging
+
     try {
         // Check if the API key is available in environment variables
         if (!process.env.OPENROUTER_API_KEY) {
