@@ -29,7 +29,7 @@ const LoginPage = () => {
             setLoading(false);
             const userId = response.data.student_id
             console.log(response.data);
-            navigate(`/${userId}/coursespage`);
+            navigate(`${userId}/coursespage`);
         })
         .catch((error) => {
             console.log(error);
