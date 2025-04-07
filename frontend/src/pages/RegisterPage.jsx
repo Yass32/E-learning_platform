@@ -28,7 +28,7 @@ const RegisterPage = () => {
         .then((response) => {
             setLoading(false);
             console.log(response.data);
-            navigate(`https://e-learning-platform-client.onrender.com/${response.data.registeredStudentId}/profilepage`);
+            navigate(`${response.data.registeredStudentId}/profilepage`);
         })
         .catch((error) => {
             console.log(error);
