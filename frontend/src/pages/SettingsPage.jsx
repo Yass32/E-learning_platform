@@ -144,7 +144,7 @@ const SettingsPage = () => {
                                             <img
                                                 src={profilePicUrl}
                                                 alt="Avatar"
-                                                className="w-16 h-16 rounded-full mb-4"
+                                                className="w-20 h-20 rounded-full mb-4"
                                             />
                                             <div className='ml-6 text-lg'>
                                                 <input type="file" accept="image/*" onChange={handleProfilePicChange} /> <br/>
