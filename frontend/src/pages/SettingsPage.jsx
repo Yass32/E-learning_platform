@@ -134,7 +134,7 @@ const SettingsPage = () => {
 
                                 {/* Personal Information Form */}
                                 <section className='col-span-1 flex flex-col my-auto text-center'>
-                                    <h2 className="text-4xl font-bold">Personal Information</h2>
+                                    <h2 className="text-4xl font-bold text-gray-800">Personal Information</h2>
                                     <p className="text-gray-400 text-lg">Use a permanent address where you can receive mail.</p>
                                 </section>
 
@@ -157,28 +157,28 @@ const SettingsPage = () => {
                                         {/* Form */}
                                         <form className="flex-1 space-y-4" >
                                             <div>
-                                                <label className="block text-sm text-gray-500 mb-1">Full name</label>
+                                                <label className="block text-gray-500 mb-1">Full name</label>
                                                 <input placeholder={fullName} 
                                                 type="text" onChange={(e) => setNewFullName(e.target.value)}
                                                 className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
                                                 />
                                             </div>
                                             <div>
-                                                <label className="block text-sm text-gray-500 mb-1">Email address</label>
+                                                <label className="block text-gray-500 mb-1">Email address</label>
                                                 <input placeholder={email}
                                                 type="email"  onChange={(e) => setNewEmail(e.target.value)}
                                                 className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
                                                 />
                                             </div>
                                             <div>
-                                                <label className="block text-sm text-gray-500 mb-1">Current password</label>
+                                                <label className="block text-gray-500 mb-1">Current password</label>
                                                 <input type="password" disabled
                                                 placeholder={password}
                                                 className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
                                                 />
                                             </div>
                                             <div>
-                                                <label className="block text-sm text-gray-500 mb-1">New password</label>
+                                                <label className="block text-gray-500 mb-1">New password</label>
                                                 <input type="password" 
                                                 placeholder='Enter your new password'
                                                 className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
@@ -210,7 +210,7 @@ const SettingsPage = () => {
 
                                 {/* Personal Information Form */}
                                 <section className='col-span-1 flex flex-col my-auto text-center '>
-                                    <h2 className="text-4xl font-bold">Delete account</h2>
+                                    <h2 className="text-4xl font-bold text-gray-800">Delete account</h2>
                                     <p className="text-gray-400 text-lg"> No longer want to use our service? You can delete your account here.  All information related to this account will be deleted permanently.</p>
                                 </section>
 
@@ -221,7 +221,7 @@ const SettingsPage = () => {
                                         <form className="flex-1 space-y-4 text-2xl" onSubmit={(e) => e.preventDefault()}>
                                             <button
                                                 onClick={handleDeleteAccount}
-                                                className="px-6 py-2 bg-red-800 text-white rounded hover:bg-red-800"
+                                                className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-800"
                                             >
                                                 Yes, delete my account
                                             </button>

@@ -125,7 +125,7 @@ const ProfilePage = () => {
                     {/* Full-Width Right Column */}
                     <main className="ml-[22%] flex-1 bg-gray-100 p-8 overflow-auto">
                         <div className="mb-2">
-                            <h1 className="text-4xl font-bold">Hello {fullName} !</h1>
+                            <h1 className="text-4xl font-bold text-gray-800">Hello {fullName} !</h1>
                         </div>
                         <div className="mb-4 text-lg">
                             <p className=" text-gray-600">Not sure where to begin? 
