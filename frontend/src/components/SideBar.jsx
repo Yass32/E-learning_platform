@@ -9,7 +9,7 @@ const SideBar = ({name, profilePic}) => {
 
     return (
         <aside className="w-[22%] h-screen bg-gray-900 text-white flex flex-col transition-all duration-300 ease-in-out fixed">
-            <FaCode className=" m-2 bg-gray-700 rounded hover:bg-gray-600 transition"/>
+            <FaCode className="text-3xl m-2 bg-gray-700 rounded hover:bg-gray-600 transition"/>
             
             <nav className="space-y-4 transition-opacity duration-300 ease-in-out">
                 <Link to={`/${student_id}/coursespage`} className="block mx-2 hover:bg-gray-700 p-2 rounded">
@@ -32,7 +32,7 @@ const SideBar = ({name, profilePic}) => {
                     <CgProfile className="text-3xl"/>
                 }
                     
-                    <span className="ml-2 overflow-auto">{name}</span>
+                    <span className="ml-2 overflow-auto text-lg">{name}</span>
                 </div>
             </nav>
             

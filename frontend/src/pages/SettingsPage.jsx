@@ -31,7 +31,7 @@ const SettingsPage = () => {
 
         const fetchStudent = async () => {
             try {
-                const response = await axios.get(`${VITE_BACKEND_URL}``students/${student_id}`);
+                const response = await axios.get(`${VITE_BACKEND_URL}/students/${student_id}`);
                 setFullName(response.data.full_name); // Set full name
                 setEmail(response.data.email); // Set email
                 setPassword(response.data.password_hash); // Set password (hashed)
@@ -47,7 +47,7 @@ const SettingsPage = () => {
     const handleDeleteAccount = async () => {
         if (!window.confirm("Are you sure you want to delete your account? This action is irreversible.")) return;
         try {
-            await axios.delete(`${VITE_BACKEND_URL}``students/${student_id}`);
+            await axios.delete(`${VITE_BACKEND_URL}/students/${student_id}`);
             navigate('/'); // Redirect to homepage after deletion
         } catch (error) {
             console.error("Delete error:", error.response?.data || error.message);
@@ -57,7 +57,7 @@ const SettingsPage = () => {
     // Function to update user information
     const handleUpdateInfo = async () => {
         try {
-            await axios.put(`${VITE_BACKEND_URL}``students/${student_id}`, {
+            await axios.put(`${VITE_BACKEND_URL}/students/${student_id}`, {
                 full_name: newFullName,
                 email: newEmail,
                 password_hash: newPassword,
@@ -98,7 +98,7 @@ const SettingsPage = () => {
         try {
             // Send an HTTP PUT request to upload the image to the server
             const response = await axios.put(
-                `${VITE_BACKEND_URL}``students/${student_id}/upload`, // API endpoint for image upload
+                `${VITE_BACKEND_URL}/students/${student_id}/upload`, // API endpoint for image upload
                 formData, // Form data containing the image file
                 {
                     headers: { "Content-Type": "multipart/form-data" }, // Ensure proper request headers
@@ -221,7 +221,7 @@ const SettingsPage = () => {
                                         <form className="flex-1 space-y-4 text-2xl" onSubmit={(e) => e.preventDefault()}>
                                             <button
                                                 onClick={handleDeleteAccount}
-                                                className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-800"
+                                                className="px-6 py-2 bg-red-600 text-white rounded hover:bg-red-800"
                                             >
                                                 Yes, delete my account
                                             </button>
