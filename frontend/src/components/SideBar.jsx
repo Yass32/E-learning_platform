@@ -27,12 +27,12 @@ const SideBar = ({name, profilePic}) => {
                 <div className="flex items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 ">
                 {profilePic? 
                     <img src={profilePic} alt="profile_picture"
-                        className="w-9 h-9 rounded-full mb-4"
+                        className="w-20 h-20 rounded-full mb-4"
                     /> :
-                    <CgProfile className="text-3xl"/>
+                    <CgProfile className="text-2xl"/>
                 }
                     
-                    <span className="ml-2 overflow-auto text-xl">{name}</span>
+                    <span className="ml-2 overflow-auto text-2xl">{name}</span>
                 </div>
             </nav>
             

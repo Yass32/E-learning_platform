@@ -51,7 +51,7 @@ const Questionnaire = () => {
                 <div>
                     {recommendation? (
                         <div className="p-4 bg-white shadow rounded-lg">
-                            <h2 className="text-lg font-semibold">Recommendation:</h2>
+                            <h2 className="text-2xl font-semibold">Recommendation:</h2>
                             <pre className='text-wrap'>{recommendation}</pre>
                             <button className="mt-2 mx-auto block rounded-md bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-xs hover:hover:bg-rose-800 transition-all duration-200" 
                             onClick={() => {
@@ -74,7 +74,7 @@ const Questionnaire = () => {
                                         <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                         <div className="sm:flex sm:items-start">
                                             <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                            <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
+                                            <DialogTitle as="h3" className="text-2xl font-semibold text-gray-900">
                                                 Career Questionnaire
                                             </DialogTitle>
                                             <div className="mt-2">
