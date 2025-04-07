@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import SideBar from '../components/SideBar';
 import Loading from '../components/Loading';
 import axios from 'axios';
-import { BACKEND_URL } from '../config';
+import { BACKEND_URL } from './config';
 
 
 const CoursesPage = () => {

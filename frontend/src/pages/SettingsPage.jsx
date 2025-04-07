@@ -4,7 +4,7 @@ import SideBar from '../components/SideBar'; // Import the Sidebar component
 import Loading from '../components/Loading'; // Import the Loading component
 import axios from 'axios'; // Import axios for making HTTP requests
 import { useNavigate, useParams } from 'react-router-dom'; // Import hooks for navigation and getting URL parameters
-import { BACKEND_URL } from '../config';
+import { BACKEND_URL } from './config';
 
 
 
