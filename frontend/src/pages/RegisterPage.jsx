@@ -4,7 +4,7 @@ import backgroundAurora from '../assets/aurora-background.png';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import { BACKEND_URL } from '../config';
+import { BACKEND_URL } from '../config.js';
 
 const RegisterPage = () => {
     const [fullName, setFullName] = useState("");
@@ -40,7 +40,7 @@ const RegisterPage = () => {
             })
     }
 
-    
+
     return (
         <>
             {loading? (<Loading/>) : (

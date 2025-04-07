@@ -4,7 +4,7 @@ import backgroundAurora from '../assets/aurora-background.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 import axios from 'axios';
-import { BACKEND_URL } from '../config';
+import { BACKEND_URL } from '../config.js';
 
 const LoginPage = () => {
     const [fullName, setFullName] = useState("");
