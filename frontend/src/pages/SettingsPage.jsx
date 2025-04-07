@@ -129,9 +129,8 @@ const SettingsPage = () => {
                         
 
                         {/* Main Content */}
-                        <div className='ml-[22%] flex-1 overflow-y-auto p-6  border border-b-green-500'>
-                            <main className="grid grid-cols-3  border border-b-red-500">
-
+                        <div className='ml-[22%] flex-1 overflow-y-auto p-6'>
+                            <main className="grid grid-cols-3 my-auto border border-b-red-500">
                                 {/* Personal Information Form */}
                                 <section className='col-span-1 flex flex-col my-auto text-center border border-b-blue-500'>
                                     <h2 className="text-4xl font-bold text-gray-800">Personal Information</h2>
