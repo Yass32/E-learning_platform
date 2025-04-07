@@ -133,12 +133,12 @@ const SettingsPage = () => {
                             <main className="grid grid-cols-3">
 
                                 {/* Personal Information Form */}
-                                <section className='col-span-1 flex flex-col my-auto text-center  '>
-                                    <h2 className="text-xl font-bold">Personal Information</h2>
-                                    <p className="text-gray-400">Use a permanent address where you can receive mail.</p>
+                                <section className='col-span-1 flex flex-col my-auto text-center'>
+                                    <h2 className="text-4xl font-bold">Personal Information</h2>
+                                    <p className="text-gray-400 text-lg">Use a permanent address where you can receive mail.</p>
                                 </section>
 
-                                <section className='col-span-2 flex flex-col my-auto'>
+                                <section className='col-span-2 flex flex-col my-auto text-2xl'>
                                     <div className="mx-auto  w-[80%]">
 
                                         <div className="flex items-center flex-row">
@@ -148,8 +148,8 @@ const SettingsPage = () => {
                                                 className="w-14 h-14 rounded-full mb-4"
                                             />
                                             <div className='ml-6'>
-                                                <input type="file" accept="image/*" onChange={handleProfilePicChange} />
-                                                <button className="mt-2 text-white bg-rose-600 rounded-md px-6 py-2 w-fit hover:bg-rose-800 transition-all duration-200" onClick={handleUploadProfilePic}>Upload</button>
+                                                <input type="file" accept="image/*" onChange={handleProfilePicChange} /> <br/>
+                                                <button className="mt-2 text-white text-lg bg-rose-600 rounded-md px-6 py-2 w-fit hover:bg-rose-800 transition-all duration-200" onClick={handleUploadProfilePic}>Upload</button>
                                                 {/*<p className="text-sm text-gray-500 mt-2">JPG, GIF, or PNG. 1MB max.</p>*/ }
                                             </div>
                                         </div>
@@ -188,7 +188,7 @@ const SettingsPage = () => {
                                             </div>
                                             <button
                                                 onClick={handleUpdateInfo}
-                                                className="text-white bg-rose-600 rounded-md px-6 py-2 w-fit text-xs hover:bg-rose-800 transition-all duration-200"
+                                                className="text-white bg-rose-600 rounded-md px-6 py-2 w-fit text-lg hover:bg-rose-800 transition-all duration-200"
                                             >
                                                 Save
                                             </button>
@@ -210,15 +210,15 @@ const SettingsPage = () => {
 
                                 {/* Personal Information Form */}
                                 <section className='col-span-1 flex flex-col my-auto text-center '>
-                                    <h2 className="text-xl font-bold">Delete account</h2>
-                                    <p className="text-gray-400"> No longer want to use our service? You can delete your account here.  All information related to this account will be deleted permanently.</p>
+                                    <h2 className="text-4xl font-bold">Delete account</h2>
+                                    <p className="text-gray-400 text-lg"> No longer want to use our service? You can delete your account here.  All information related to this account will be deleted permanently.</p>
                                 </section>
 
                                 <section className='col-span-2 flex flex-col my-auto'>
                                     <div className=" mx-auto  w-[80%]">
 
                                         {/* Form */}
-                                        <form className="flex-1 space-y-4 " onSubmit={(e) => e.preventDefault()}>
+                                        <form className="flex-1 space-y-4 text-2xl" onSubmit={(e) => e.preventDefault()}>
                                             <button
                                                 onClick={handleDeleteAccount}
                                                 className="px-6 py-2 bg-red-800 text-white rounded hover:bg-red-800"

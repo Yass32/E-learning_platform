@@ -115,7 +115,7 @@ const CoursesPage = () => {
                                         <p className="text-2xl font-semibold">{course.name}</p>
                                         <button
                                             
-                                            className={`text-white rounded-md p-2 w-fit text-xl ${isEnrolled ? 'bg-blue-500' : 'bg-rose-600'}`}
+                                            className={`text-white rounded-md p-2 w-fit text-lg ${isEnrolled ? 'bg-blue-500' : 'bg-rose-600'}`}
                                             onClick={() => isEnrolled ? navigate(`/${student_id}${course.path}`) : handleEnrollment(course)}>
                                             {isEnrolled ? "Continue" : "Enroll"}
                                         </button>

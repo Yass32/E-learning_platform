@@ -125,9 +125,9 @@ const ProfilePage = () => {
                     {/* Full-Width Right Column */}
                     <main className="ml-[22%] flex-1 bg-gray-100 p-8 overflow-auto">
                         <div className="mb-2">
-                            <h1 className="text-lg font-bold">Hello {fullName} !</h1>
+                            <h1 className="text-4xl font-bold">Hello {fullName} !</h1>
                         </div>
-                        <div className="mb-4 text-sm">
+                        <div className="mb-4 text-lg">
                             <p className=" text-gray-600">Not sure where to begin? 
                                 <a className="text-rose-700 hover:underline cursor-pointer"
                                 onClick={() => setShowQuestionnaire(!showQuestionnaire)}> Take our quiz →</a>                
@@ -142,7 +142,7 @@ const ProfilePage = () => {
                             return (
                                 <div className="mt-6 " key={course.course_id}>
                                     <div className="bg-white p-3 shadow rounded hover:scale-105 transform transition-all duration-300 hover:cursor-pointer">
-                                        <h3 className="text-lg font-semibold text-gray-600">{course.name}</h3>
+                                        <h3 className="text-2xl font-semibold text-gray-600">{course.name}</h3>
                                         {/* Progress Bar */}
                                         <div className="w-full bg-gray-200 mt-2 rounded-full overflow-hidden">
                                             <div className="bg-blue-500 h-full  text-center text-white text-xs font-bold transition-all duration-300 ease-in-out "
@@ -156,7 +156,7 @@ const ProfilePage = () => {
                                         <div className="text-red-500">
                                             {course.message}
                                         </div>
-                                        <button className="text-white bg-rose-600 rounded-md p-2 w-fit text-xs hover:bg-rose-800 transition-all duration-200"
+                                        <button className="text-white bg-rose-600 rounded-md p-2 w-fit text-lg hover:bg-rose-800 transition-all duration-200"
                                             onClick={handleReset(course.course_id)}> 
                                             Reset
                                         </button>
