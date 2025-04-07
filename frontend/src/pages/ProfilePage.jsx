@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import Questionnaire from '../components/Questionnaire';
-import { BACKEND_URL } from './config';
+
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 const ProfilePage = () => {
@@ -42,20 +43,20 @@ const ProfilePage = () => {
     
             try {
                 // Fetch student details (e.g., full name) from the backend
-                const response = await axios.get(`${BACKEND_URL}/students/${student_id}`);
+                const response = await axios.get(`${VITE_BACKEND_URL}/students/${student_id}`);
                 
                 // Update state with the fetched full name
                 setFullName(response.data.full_name);
 
                 // Update state with the fetched profile picture URL
-                setProfilePicUrl(`${BACKEND_URL}` + response.data.profile_picture || "");
+                setProfilePicUrl(`${VITE_BACKEND_URL}` + response.data.profile_picture || "");
         
                 // Fetch course progress for each course
                 const updatedCourses = await Promise.all(
                     courses.map(async (course) => {
                         try {
                             // Fetch student's progress for the specific course
-                            const progressResponse = await axios.get(`${BACKEND_URL}/students/${student_id}/progress/${course.course_id}`);
+                            const progressResponse = await axios.get(`${VITE_BACKEND_URL}/students/${student_id}/progress/${course.course_id}`);
                             
                             // Update course completion percentage
                             return { ...course, courseCompletion: progressResponse.data.progress_percentage };
@@ -84,7 +85,7 @@ const ProfilePage = () => {
 
         try {
             // Send a DELETE request to reset student's progress for the given course
-            await axios.delete(`${BACKEND_URL}/students/${student_id}/progress/${course_id}`);
+            await axios.delete(`${VITE_BACKEND_URL}/students/${student_id}/progress/${course_id}`);
             
             // Remove completed lessons data from localStorage
             localStorage.removeItem(`completedLessons_${student_id}`);

@@ -4,7 +4,8 @@ import backgroundAurora from '../assets/aurora-background.png';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import { BACKEND_URL } from './config.js';
+
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const RegisterPage = () => {
     const [fullName, setFullName] = useState("");
@@ -23,7 +24,7 @@ const RegisterPage = () => {
         setLoading(true);
 
     
-        axios.post(`${BACKEND_URL}/students/register`, user)
+        axios.post(`${VITE_BACKEND_URL}/students/register`, user)
         .then((response) => {
             setLoading(false);
             console.log(response.data);
