@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import modules from "../pages/Languages/Python/ModuleOverview.json";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const ModuleBar = () => {
@@ -45,9 +45,9 @@ const ModuleBar = () => {
         <div className="flex h-screen w-[22%]">
             {/* Sidebar */}
             <div className="flex-col bg-gray-800 text-white transition-all duration-300 ">
-                <a href={`/${student_id}/coursespage`}>
+                <Link to={`/${student_id}/coursespage`}>
                     <IoIosArrowBack className="size-7 focus:outline-none hover:bg-gray-700 text-white " />
-                </a>
+                </Link>
 
                 {/* Menu Items */}
                 {modules.map((module, index) => (
@@ -62,10 +62,10 @@ const ModuleBar = () => {
                                 <div className="ml-4" key={lesson.id}>
                                     <ul>
                                         <li className="py-1 px-2 hover:bg-gray-600">
-                                            <a href={`/${student_id}${lesson.path}`}
+                                            <Link to={`/${student_id}${lesson.path}`}
                                                onClick={() => handleLessonProgress(lesson.id)}>
                                                 {lesson.name} {completedLessons.includes(lesson.id) && "✅"}
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -82,10 +82,10 @@ const ModuleBar = () => {
                         <div className="ml-4">
                             <ul>
                                 <li className="py-1 px-2 hover:bg-gray-600">
-                                    <a href={`/${student_id}/quizpage`}>Quiz</a>
+                                    <Link to={`/${student_id}/quizpage`}>Quiz</Link>
                                 </li>
                                 <li className="py-1 px-2 hover:bg-gray-600">
-                                    <a href={`/${student_id}/pythonex1`}>Exercises</a>
+                                    <Link to={`/${student_id}/pythonex1`}>Exercises</Link>
                                 </li>
                             </ul>
                         </div>
