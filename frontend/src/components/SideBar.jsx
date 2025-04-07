@@ -32,7 +32,7 @@ const SideBar = ({name, profilePic}) => {
                     <CgProfile className="text-3xl"/>
                 }
                     
-                    <span className="ml-2 overflow-auto text-lg">{name}</span>
+                    <span className="ml-2 overflow-auto text-xl">{name}</span>
                 </div>
             </nav>
             
