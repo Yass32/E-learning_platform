@@ -5,6 +5,8 @@ import modules from "../pages/Languages/Python/ModuleOverview.json";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const ModuleBar = () => {
     const [activeSection, setActiveSection] = useState("");
     const [open, setOpen] = useState(false);
@@ -29,7 +31,7 @@ const ModuleBar = () => {
         let progress_percentage = ((completedLessons.length) / 13) * 100; // Fix progress calculation
 
         try {
-            await axios.put(`http://localhost:3000/students/${student_id}/progress`, {
+            await axios.put(`${VITE_BACKEND_URL}/students/${student_id}/progress`, {
                 student_id: student_id,
                 course_id: 1,
                 progress_percentage: progress_percentage

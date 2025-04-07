@@ -4,7 +4,6 @@ import CodeSnippet from '../../../../components/CodeSnippet';
 import PageButton from '../../../../components/PageButton';
 import { useParams } from 'react-router-dom';
 
-
 const PyM1Lesson2 = () => {
     const codeString = 'name = "Alice"       # A string variable \nage = 25             # An integer variable \nheight = 5.7         # A float variable \nis_student = True    # A boolean variable'
     const codeString2 = 'birth_year = input("Enter your birth year: ") \ncurrent_year = 2024 \nage = current_year - int(birth_year)  \nprint(f"You are {age} years old.")'

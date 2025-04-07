@@ -2,6 +2,7 @@ import ModuleBar from '../../../../components/ModuleBar';
 import CodeSnippet from '../../../../components/CodeSnippet';
 import PageButton from '../../../../components/PageButton';
 import { useParams } from 'react-router-dom';
+
 const PyM1Lesson1 = () => {
     const codeString = `print("Hello, World!")`;
     const { student_id } = useParams();
