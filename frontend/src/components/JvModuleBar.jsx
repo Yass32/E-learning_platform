@@ -20,11 +20,11 @@ const ModuleBar = () => {
     };
 
     return (
-        <div className="flex h-screen w-[22%]">
+        <div className="flex h-screen w-[22%] text-2xl">
             {/* Sidebar */}
             <div className="flex-col bg-gray-800 text-white transition-all duration-300 ">
-                <Link to={`/${student_id}/coursespage`}>
-                <IoIosArrowBack className="size-7 focus:outline-none hover:bg-gray-700 text-white " />
+                <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/coursespage`}>
+                <IoIosArrowBack className="size-10 focus:outline-none hover:scale-105 text-white " />
                 </Link>
                 
                 {/* Menu Items */}
@@ -41,7 +41,7 @@ const ModuleBar = () => {
                                     <ul>
                                         <li className="py-1 px-2 hover:bg-gray-600"> <FaCheck />
 
-                                        <Link to={`/${student_id}${lesson.path}`}>{lesson.name}</Link>                                        
+                                        <Link to={`https://e-learning-platform-client.onrender.com/${student_id}${lesson.path}`}>{lesson.name}</Link>                                        
                                         </li>
                                     </ul>
                                 </div>
@@ -59,10 +59,10 @@ const ModuleBar = () => {
                         <div className="ml-4">
                             <ul>
                                 <li className="py-1 px-2 hover:bg-gray-600">
-                                <Link to={`/${student_id}/jvquizpage`}>Quiz</Link>
+                                <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/jvquizpage`}>Quiz</Link>
                                 </li>
                                 <li className="py-1 px-2 hover:bg-gray-600">
-                                <Link to={`/${student_id}/javaex1`}>Exercises</Link>
+                                <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/javaex1`}>Exercises</Link>
                                 </li>
                             </ul>
                         </div>

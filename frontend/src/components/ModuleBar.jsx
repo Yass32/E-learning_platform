@@ -47,8 +47,8 @@ const ModuleBar = () => {
         <div className="flex h-screen w-[22%] text-2xl">
             {/* Sidebar */}
             <div className="flex-col bg-gray-800 text-white transition-all duration-300 ">
-                <Link to={`/${student_id}/coursespage`}>
-                    <IoIosArrowBack className="size-10 m-3 focus:outline-none hover:scale-90 text-white " />
+                <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/coursespage`}>
+                    <IoIosArrowBack className="size-10 m-3 focus:outline-none hover:scale-105 text-white " />
                 </Link>
 
                 {/* Menu Items */}
@@ -64,7 +64,7 @@ const ModuleBar = () => {
                                 <div className="ml-4" key={lesson.id}>
                                     <ul>
                                         <li className="py-1 px-2 hover:bg-gray-600">
-                                            <Link to={`/${student_id}${lesson.path}`}
+                                            <Link to={`https://e-learning-platform-client.onrender.com/${student_id}${lesson.path}`}
                                                onClick={() => handleLessonProgress(lesson.id)}>
                                                 {lesson.name} {completedLessons.includes(lesson.id) && "✅"}
                                             </Link>
@@ -84,10 +84,10 @@ const ModuleBar = () => {
                         <div className="ml-4">
                             <ul>
                                 <li className="py-1 px-2 hover:bg-gray-600">
-                                    <Link to={`/${student_id}/quizpage`}>Quiz</Link>
+                                    <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/quizpage`}>Quiz</Link>
                                 </li>
                                 <li className="py-1 px-2 hover:bg-gray-600">
-                                    <Link to={`/${student_id}/pythonex1`}>Exercises</Link>
+                                    <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/pythonex1`}>Exercises</Link>
                                 </li>
                             </ul>
                         </div>
