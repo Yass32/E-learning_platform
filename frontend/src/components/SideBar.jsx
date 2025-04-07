@@ -8,8 +8,8 @@ const SideBar = ({name, profilePic}) => {
 
 
     return (
-        <aside className="w-[22%] h-screen text-3xl bg-gray-900 text-white flex flex-col transition-all duration-300 ease-in-out fixed">
-            <FaCode className="m-2 animate-pulse hover:animate-bounce transition"/>
+        <aside className="w-[22%] h-screen text-2xl bg-gray-900 text-white flex flex-col transition-all duration-300 ease-in-out fixed">
+            <FaCode className="text-3xl m-3 animate-pulse transition"/>
             
             <nav className="space-y-4 transition-opacity duration-300 ease-in-out">
                 <Link to={`/${student_id}/coursespage`} className="block mx-2 hover:bg-gray-700 p-2 rounded">
