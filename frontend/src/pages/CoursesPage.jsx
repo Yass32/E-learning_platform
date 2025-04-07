@@ -91,8 +91,8 @@ const CoursesPage = () => {
 
                     <main className="ml-[22%] flex-1 bg-gray-100 p-8 overflow-auto">
                         <div className="mb-4">
-                            <h2 className="text-3xl font-bold text-gray-800">Welcome Back!</h2>
-                            <p className="text-gray-600 mt-2">
+                            <h2 className="text-4xl font-bold text-gray-800">Welcome Back!</h2>
+                            <p className="text-gray-600 mt-2 text-lg">
                                 Start your coding journey.
                             </p>
                         </div>
@@ -112,10 +112,10 @@ const CoursesPage = () => {
                                         className="bg-white p-4 shadow rounded hover:scale-105 transform transition-all duration-300"
                                         key={course.course_id}
                                     >
-                                        <p className="text-lg font-semibold">{course.name}</p>
+                                        <p className="text-2xl font-semibold">{course.name}</p>
                                         <button
                                             
-                                            className={`text-white rounded-md p-2 w-fit text-xs ${isEnrolled ? 'bg-blue-500' : 'bg-rose-600'}`}
+                                            className={`text-white rounded-md p-2 w-fit text-xl ${isEnrolled ? 'bg-blue-500' : 'bg-rose-600'}`}
                                             onClick={() => isEnrolled ? navigate(`/${student_id}${course.path}`) : handleEnrollment(course)}>
                                             {isEnrolled ? "Continue" : "Enroll"}
                                         </button>
