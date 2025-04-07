@@ -1,12 +1,11 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
-//import Navbar from '../components/Navbar';
-//import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { FaCode } from "react-icons/fa";
 import backgroundAurora from '../assets/aurora-background.png';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import { BACKEND_URL } from '../config';
+
 const RegisterPage = () => {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
@@ -24,7 +23,7 @@ const RegisterPage = () => {
         setLoading(true);
 
     
-        axios.post(`http://localhost:3000/students/register`, user)
+        axios.post(`${BACKEND_URL}/students/register`, user)
         .then((response) => {
             setLoading(false);
             console.log(response.data);
@@ -40,6 +39,8 @@ const RegisterPage = () => {
             setLoading(false);
             })
     }
+
+    
     return (
         <>
             {loading? (<Loading/>) : (
@@ -99,9 +100,9 @@ const RegisterPage = () => {
         
                             <p className="mt-10 text-center text-sm/6 text-gray-500">
                                 Already a member?{' '}
-                                <a href="/login" className="font-semibold text-rose-600 hover:text-rose-800">
+                                <Link to="/login" className="font-semibold text-rose-600 hover:text-rose-800">
                                 Sign in here
-                                </a>
+                                </Link>
                             </p>
                         </form>
                     </div>

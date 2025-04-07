@@ -4,6 +4,8 @@ import backgroundAurora from '../assets/aurora-background.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 import axios from 'axios';
+import { BACKEND_URL } from '../config';
+
 const LoginPage = () => {
     const [fullName, setFullName] = useState("");
     const [password, setPassword] = useState("");
@@ -19,7 +21,7 @@ const LoginPage = () => {
 
         setLoading(true);
 
-        let url = `http://localhost:3000/students/login`;
+        let url = `${BACKEND_URL}/students/login`;
     
         axios.post(url, user)
         .then((response) => {
@@ -41,10 +43,6 @@ const LoginPage = () => {
     }
 
     
-
-    
-
-
 
     return (
         <>

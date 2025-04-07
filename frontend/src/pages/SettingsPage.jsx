@@ -4,6 +4,9 @@ import SideBar from '../components/SideBar'; // Import the Sidebar component
 import Loading from '../components/Loading'; // Import the Loading component
 import axios from 'axios'; // Import axios for making HTTP requests
 import { useNavigate, useParams } from 'react-router-dom'; // Import hooks for navigation and getting URL parameters
+import { BACKEND_URL } from '../config';
+
+
 
 const SettingsPage = () => {
     // State variables for storing user details
@@ -27,11 +30,11 @@ const SettingsPage = () => {
 
         const fetchStudent = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/students/${student_id}`);
+                const response = await axios.get(`${BACKEND_URL}``students/${student_id}`);
                 setFullName(response.data.full_name); // Set full name
                 setEmail(response.data.email); // Set email
                 setPassword(response.data.password_hash); // Set password (hashed)
-                setProfilePicUrl("http://localhost:3000" + response.data.profile_picture || profilePicUrl);
+                setProfilePicUrl(`${BACKEND_URL}` + response.data.profile_picture || profilePicUrl);
             } catch (error) {
                 console.log(error); // Log error if request fails
             }
@@ -43,7 +46,7 @@ const SettingsPage = () => {
     const handleDeleteAccount = async () => {
         if (!window.confirm("Are you sure you want to delete your account? This action is irreversible.")) return;
         try {
-            await axios.delete(`http://localhost:3000/students/${student_id}`);
+            await axios.delete(`${BACKEND_URL}``students/${student_id}`);
             navigate('/'); // Redirect to homepage after deletion
         } catch (error) {
             console.error("Delete error:", error.response?.data || error.message);
@@ -53,7 +56,7 @@ const SettingsPage = () => {
     // Function to update user information
     const handleUpdateInfo = async () => {
         try {
-            await axios.put(`http://localhost:3000/students/${student_id}`, {
+            await axios.put(`${BACKEND_URL}``students/${student_id}`, {
                 full_name: newFullName,
                 email: newEmail,
                 password_hash: newPassword,
@@ -94,7 +97,7 @@ const SettingsPage = () => {
         try {
             // Send an HTTP PUT request to upload the image to the server
             const response = await axios.put(
-                `http://localhost:3000/students/${student_id}/upload`, // API endpoint for image upload
+                `${BACKEND_URL}``students/${student_id}/upload`, // API endpoint for image upload
                 formData, // Form data containing the image file
                 {
                     headers: { "Content-Type": "multipart/form-data" }, // Ensure proper request headers

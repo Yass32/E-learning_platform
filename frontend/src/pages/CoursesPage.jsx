@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import SideBar from '../components/SideBar';
 import Loading from '../components/Loading';
 import axios from 'axios';
+import { BACKEND_URL } from '../config';
+
 
 const CoursesPage = () => {
     const [loading, setLoading] = useState(false);
@@ -27,13 +29,13 @@ const CoursesPage = () => {
             try {
                 // Fetch enrollments and student info simultaneously
                 const [enrollmentsResponse, studentResponse] = await Promise.all([
-                    axios.get(`http://localhost:3000/students/${student_id}/enrollments`),
-                    axios.get(`http://localhost:3000/students/${student_id}`)
+                    axios.get(`${BACKEND_URL}/students/${student_id}/enrollments`),
+                    axios.get(`${BACKEND_URL}/students/${student_id}`)
                 ]);
     
                 setEnrolledCourses(enrollmentsResponse.data.enrolledCourses || []);
                 setFullName(studentResponse.data.full_name);
-                setProfilePicUrl("http://localhost:3000" + studentResponse.data.profile_picture || "");
+                setProfilePicUrl(`${BACKEND_URL}` + studentResponse.data.profile_picture || "");
                 console.log("Enrollments:", enrollmentsResponse.data);
                 console.log("Student Info:", studentResponse.data);
             } catch (error) {
@@ -58,7 +60,7 @@ const CoursesPage = () => {
         setLoading(true);
         setMessage("");
 
-        axios.post(`http://localhost:3000/students/enroll`, user)
+        axios.post(`${BACKEND_URL}/students/enroll`, user)
             .then((response) => {
                 setEnrolledCourses(prev => [...new Set([...prev, course_id])]);
                 console.log(response);
