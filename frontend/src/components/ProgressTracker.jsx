@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+
 const ProgressTracker = ({ children, totalLessons, lesson_id, course_id }) => {
     // Get student_id from the URL parameters
     const { student_id } = useParams();
@@ -33,7 +36,7 @@ const ProgressTracker = ({ children, totalLessons, lesson_id, course_id }) => {
 
         // Step 7: Send the updated progress to the backend API
         try {
-            axios.put(`http://localhost:3000/students/${student_id}/progress`, {
+            axios.put(`${VITE_BACKEND_URL}/students/${student_id}/progress`, {
                 course_id: Number(course_id),  // Convert to number
                 progress_percentage: parseFloat(progressPercentage.toFixed(2)) // Round to 2 decimal places
             })

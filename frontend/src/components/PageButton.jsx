@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const PageButton = ({url, text}) => {
   return (
     <Link to={url}>
-      <button className="text-white bg-rose-600 rounded-md p-2 w-fit text-xs hover:bg-rose-800 transition-all duration-200">
+      <button className="text-white bg-rose-600 rounded-md p-2 w-fit text-lg hover:bg-rose-800 transition-all duration-200">
         {text}
       </button>
     </Link>
