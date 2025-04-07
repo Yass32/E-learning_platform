@@ -44,11 +44,11 @@ const ModuleBar = () => {
     };
 
     return (
-        <div className="flex h-screen w-[22%]">
+        <div className="flex h-screen w-[22%] text-2xl">
             {/* Sidebar */}
             <div className="flex-col bg-gray-800 text-white transition-all duration-300 ">
                 <Link to={`/${student_id}/coursespage`}>
-                    <IoIosArrowBack className="size-7 focus:outline-none hover:bg-gray-700 text-white " />
+                    <IoIosArrowBack className="size-10 m-3 focus:outline-none hover:scale-90 text-white " />
                 </Link>
 
                 {/* Menu Items */}
