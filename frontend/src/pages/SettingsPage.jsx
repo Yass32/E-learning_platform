@@ -130,7 +130,7 @@ const SettingsPage = () => {
 
                         {/* Main Content */}
                         <div className='ml-[22%] flex-1 overflow-y-auto p-6 flex flex-col h-full'>
-                            <main className="grid grid-cols-3 my-auto border border-b-red-500">
+                            <main className="grid grid-cols-3 my-auto">
                                 {/* Personal Information Form */}
                                 <section className='col-span-1 flex flex-col my-auto text-center'>
                                     <h2 className="text-4xl font-bold text-gray-800">Personal Information</h2>
@@ -144,11 +144,11 @@ const SettingsPage = () => {
                                             <img
                                                 src={profilePicUrl}
                                                 alt="Avatar"
-                                                className="w-14 h-14 rounded-full mb-4"
+                                                className="w-16 h-16 rounded-full mb-4"
                                             />
-                                            <div className='ml-6'>
+                                            <div className='ml-6 text-lg'>
                                                 <input type="file" accept="image/*" onChange={handleProfilePicChange} /> <br/>
-                                                <button className="mt-2 text-white text-lg bg-rose-600 rounded-md px-6 py-2 w-fit hover:bg-rose-800 transition-all duration-200" onClick={handleUploadProfilePic}>Upload</button>
+                                                <button className="mt-2 text-white  bg-rose-600 rounded-md px-6 py-2 w-fit hover:bg-rose-800 transition-all duration-200" onClick={handleUploadProfilePic}>Upload</button>
                                                 {/*<p className="text-sm text-gray-500 mt-2">JPG, GIF, or PNG. 1MB max.</p>*/ }
                                             </div>
                                         </div>
