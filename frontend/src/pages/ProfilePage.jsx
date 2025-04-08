@@ -57,6 +57,8 @@ const ProfilePage = () => {
                         try {
                             // Fetch student's progress for the specific course
                             const progressResponse = await axios.get(`${VITE_BACKEND_URL}/students/${student_id}/progress/${course.course_id}`);
+
+                            console.log("Progress Response:", progressResponse.data); // Debug progress response
                             
                             // Update course completion percentage
                             return { ...course, courseCompletion: progressResponse.data.progress_percentage };
