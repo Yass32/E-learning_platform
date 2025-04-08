@@ -147,9 +147,7 @@ const SettingsPage = () => {
                                                 <img src={profilePicUrl}alt="Avatar"
                                                 className="w-24 h-24 rounded-full mb-4"/> 
                                                 :
-                                                //<CgProfile className="w-12 h-12"/>
-                                                <img src="https://media.istockphoto.com/id/1300845620/tr/vekt%C3%B6r/kullan%C4%B1c%C4%B1-simgesi-d%C3%BCz-beyaz-arka-plan-%C3%BCzerinde-izole-kullan%C4%B1c%C4%B1-sembol%C3%BC-vekt%C3%B6r-ill%C3%BCstrasyonu.jpg?s=612x612&w=0&k=20&c=BapxTLg8R3jjWnvaSXeHqgtou_-FcyBKmAkUsgwQzxU=" alt="Avatar"
-                                                className="w-24 h-24 rounded-full mb-4"/> 
+                                                <CgProfile className="w-16 h-16 text-gray-800"/>
                                             }                                            
                                             <div className='ml-6 text-lg'>
                                                 <input type="file" accept="image/*" onChange={handleProfilePicChange} /> <br/>
