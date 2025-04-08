@@ -8,6 +8,8 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const JavaEx1 = () => {
 
   const { student_id } = useParams();
@@ -66,7 +68,7 @@ const JavaEx1 = () => {
 
   
     const handleRunCode = async (code) => {
-    axios.post("http://localhost:3000/api/executecode", {
+    axios.post(`${VITE_BACKEND_URL}/api/executecode`, {
       language: "java",
       code,
     })
@@ -80,7 +82,7 @@ const JavaEx1 = () => {
     };
 
     const handleAutoGrade = async (code) => {
-        axios.post("http://localhost:3000/api/autograde", {
+        axios.post(`${VITE_BACKEND_URL}/api/autograde`, {
           language: "java",
           code,
           testCases: [
@@ -108,8 +110,8 @@ const JavaEx1 = () => {
     <div className="flex h-screen bg-gray-100">
       <ModuleBar />
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
-        <h2 className="text-2xl font-semibold mb-4 text-rose-700">Exercise 1</h2>
-        <p className="text-gray-700 text-sm">Write a Java program that takes a number from the user and generates an integer between 1 and 7. It displays the weekday name.
+        <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 1</h2>
+        <p className="text-gray-700">Write a Java program that takes a number from the user and generates an integer between 1 and 7. It displays the weekday name.
 For example: <br/>Input: 3 <br/> Output: Wednesday</p>
         <button className="flex items-center text-sm text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
           <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>

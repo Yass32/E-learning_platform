@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import modules from "../pages/Languages/Java/JvModuleOverview.json";
 import { Link, useParams } from "react-router-dom";
-import { FaCheck } from "react-icons/fa6";
 
 
 const ModuleBar = () => {
@@ -39,8 +38,7 @@ const ModuleBar = () => {
                             {module.lessons.map(lesson => (
                                 <div className="ml-4" key={lesson.id}>
                                     <ul>
-                                        <li className="py-1 px-2 hover:bg-gray-600"> <FaCheck />
-
+                                        <li className="py-1 px-2 hover:bg-gray-600">
                                         <Link to={`https://e-learning-platform-client.onrender.com/${student_id}${lesson.path}`}>{lesson.name}</Link>                                        
                                         </li>
                                     </ul>

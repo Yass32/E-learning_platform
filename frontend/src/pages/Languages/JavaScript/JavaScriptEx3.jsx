@@ -20,20 +20,11 @@ const JavaScriptEx3 = () => {
 
   const code = `function scoreSorter(scores) {
   // Write your code here
-  let n = scores.length;
 
-  for (let i = 0; i < n - 1; i++) {
-    for (let j = 0; j < n - i - 1; j++) {
-      if (scores[j] < scores[j + 1]) {
-        let temp = scores[j];
-        scores[j] = scores[j + 1];
-        scores[j + 1] = temp;
-      }
-    }
-  }
 
-  return scores;
 }
+
+// Uncomment this function call to test your scoreSorter function:
 
 // console.log(scoreSorter([1, 2, 3, 9999, 13]));
 // should return [9999, 13, 3, 2, 1]`;

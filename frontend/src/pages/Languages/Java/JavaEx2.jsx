@@ -8,6 +8,8 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 const JavaEx2 = () => {
   const { student_id } = useParams();
@@ -69,7 +71,7 @@ const JavaEx2 = () => {
     
   
   const handleRunCode = async (code) => {
-  axios.post("http://localhost:3000/api/executecode", {
+  axios.post(`${VITE_BACKEND_URL}/api/executecode`, {
     language: "java",
     code,
   })
@@ -83,7 +85,7 @@ const JavaEx2 = () => {
   };
 
   const handleAutoGrade = async (code) => {
-    axios.post("http://localhost:3000/api/autograde", {
+    axios.post(`${VITE_BACKEND_URL}/api/autograde`, {
       language: "java",
       code,
       testCases: [
@@ -107,8 +109,8 @@ const JavaEx2 = () => {
     <div className="flex h-screen bg-gray-100">
       <ModuleBar />
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
-        <h2 className="text-2xl font-semibold mb-4 text-rose-700">Exercise 2</h2>
-        <p className="text-gray-700 text-sm">Write a Java program to check whether a given number is ugly. An ugly number is a positive number whose prime factors only include 2, 3, or 5.
+        <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 2</h2>
+        <p className="text-gray-700">Write a Java program to check whether a given number is ugly. An ugly number is a positive number whose prime factors only include 2, 3, or 5.
         </p>
         <button className="flex items-center text-sm text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
           <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>

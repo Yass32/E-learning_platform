@@ -83,7 +83,7 @@ const JavaQuiz = () => {
         <div className="mt-6 flex justify-between">
           <button
             onClick={handleSubmit} // Calculate score when clicked
-            className="text-white bg-rose-600 rounded-md p-2 w-fit text-xs hover:bg-rose-800 transition-all duration-200"
+            className="text-white bg-rose-600 rounded-md p-2 w-fit text-lg hover:bg-rose-800 transition-all duration-200"
           >
             Submit
           </button>
