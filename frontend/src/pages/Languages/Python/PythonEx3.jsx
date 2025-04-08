@@ -8,6 +8,8 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const PythonEx3 = () => {
   const { student_id } = useParams();
 
@@ -46,7 +48,7 @@ const solution = `def lots_of_math(a, b, c, d):
 */
   
     const handleRunCode = async (code) => {
-    axios.post("http://localhost:3000/api/executecode", {
+    axios.post(`${VITE_BACKEND_URL}/api/executecode`, {
       language: "python",
       code,
     })
@@ -60,7 +62,7 @@ const solution = `def lots_of_math(a, b, c, d):
     };
 
     const handleAutoGrade = async (code) => {
-        axios.post("http://localhost:3000/api/autograde", {
+        axios.post(`${VITE_BACKEND_URL}/api/autograde`, {
           language: "python",
           code,
           testCases: [
@@ -85,8 +87,8 @@ const solution = `def lots_of_math(a, b, c, d):
     <div className="flex h-screen bg-gray-100">
       <ModuleBar />
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
-        <h2 className="text-2xl font-semibold mb-4 text-rose-700">Exercise 3</h2>
-        <p className="text-gray-700 text-sm">Create a function named <code>lots_of_math()</code>that has 4 parameters named <code>a</code>, <code>b</code>, <code>c</code>, and <code>d</code>. The function should print 3 lines and return 1 value. First, print the sum of <code>a</code> and <code>b</code>. Second, print <code>c</code> minus <code>d</code>. Third, print the first number printed, multiplied by the second number printed. Finally, return the third number printed modulo <code>a</code>.</p>
+        <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 3</h2>
+        <p className="text-gray-700">Create a function named <code>lots_of_math()</code>that has 4 parameters named <code>a</code>, <code>b</code>, <code>c</code>, and <code>d</code>. The function should print 3 lines and return 1 value. First, print the sum of <code>a</code> and <code>b</code>. Second, print <code>c</code> minus <code>d</code>. Third, print the first number printed, multiplied by the second number printed. Finally, return the third number printed modulo <code>a</code>.</p>
         <button className="flex items-center text-sm text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
           <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>
           <strong>Hint:</strong> 
