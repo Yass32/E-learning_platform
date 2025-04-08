@@ -28,8 +28,9 @@ app.use(express.json());
 //Cross origin resource sharing is a browser security feature that restricts 
 //web pages from making requests to a different domain than the one that served the web page
 app.use(cors({
-    origin: "https://e-learning-platform-client.onrender.com" || "http://localhost:5173", // Allow only requests from this origin
+    origin: "https://e-learning-platform-client.onrender.com", // Allow only requests from this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow only these methods
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
     allowedHeaders: "Content-Type" //specifies the media type of the resource or the data being sent. 
 }))
 
