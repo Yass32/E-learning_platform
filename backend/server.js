@@ -24,7 +24,7 @@ const pool = new Pool({
 
 console.log(pool.options);
 
-router.get('/test-db', async (req, res) => {
+app.get('/test-db', async (req, res) => {
     try {
       const result = await pool.query('SELECT * FROM students');
       res.json(result.rows);
