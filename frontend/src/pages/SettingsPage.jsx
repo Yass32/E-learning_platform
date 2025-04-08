@@ -4,6 +4,7 @@ import SideBar from '../components/SideBar'; // Import the Sidebar component
 import Loading from '../components/Loading'; // Import the Loading component
 import axios from 'axios'; // Import axios for making HTTP requests
 import { useNavigate, useParams } from 'react-router-dom'; // Import hooks for navigation and getting URL parameters
+import { CgProfile } from "react-icons/cg";
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -19,7 +20,7 @@ const SettingsPage = () => {
     const [newPassword, setNewPassword] = useState(''); // Stores the new password input
     const [loading, setLoading] = useState(false); // Controls the loading screen
     const [profilePic, setProfilePic] = useState(null); // Stores the selected profile picture file
-    const [profilePicUrl, setProfilePicUrl] = useState("https://media.istockphoto.com/id/1451587807/...jpg"); // Default profile picture URL
+    const [profilePicUrl, setProfilePicUrl] = useState(""); // Default profile picture URL
 
     const { student_id } = useParams(); // Get student ID from the URL
     const navigate = useNavigate(); // Hook for navigation
@@ -141,11 +142,15 @@ const SettingsPage = () => {
                                     <div className="mx-auto w-[80%]">
                                         {/* Profile Picture Upload */}
                                         <div className="flex items-center flex-row">
-                                            <img
-                                                src={profilePicUrl}
-                                                alt="Avatar"
-                                                className="w-24 h-24 rounded-full mb-4"
-                                            />
+                                            {/* Display the profile picture or a default icon if not available */}
+                                            {profilePic === "https://e-learning-platform-ioqt.onrender.comnull"? 
+                                                <img src={profilePicUrl}alt="Avatar"
+                                                className="w-24 h-24 rounded-full mb-4"/> 
+                                                :
+                                                //<CgProfile className="w-12 h-12"/>
+                                                <img src="https://media.istockphoto.com/id/1300845620/tr/vekt%C3%B6r/kullan%C4%B1c%C4%B1-simgesi-d%C3%BCz-beyaz-arka-plan-%C3%BCzerinde-izole-kullan%C4%B1c%C4%B1-sembol%C3%BC-vekt%C3%B6r-ill%C3%BCstrasyonu.jpg?s=612x612&w=0&k=20&c=BapxTLg8R3jjWnvaSXeHqgtou_-FcyBKmAkUsgwQzxU=" alt="Avatar"
+                                                className="w-24 h-24 rounded-full mb-4"/> 
+                                            }                                            
                                             <div className='ml-6 text-lg'>
                                                 <input type="file" accept="image/*" onChange={handleProfilePicChange} /> <br/>
                                                 <button className="mt-2 text-white  bg-rose-600 rounded-md px-6 py-2 w-fit hover:bg-rose-800 transition-all duration-200" onClick={handleUploadProfilePic}>Upload</button>
