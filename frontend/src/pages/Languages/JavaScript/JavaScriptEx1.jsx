@@ -8,6 +8,8 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const JavaScriptEx1 = () => {
 
   const { student_id } = useParams();
@@ -19,31 +21,6 @@ const JavaScriptEx1 = () => {
 
   const code = `function statsFinder(array) {
   // Write your code here
-  let mean = 0;
-let frequency = {};
-let maxFrequency = 0;
-let mode = null;
-
-for (let i = 0; i < array.length; i++) {
-  mean += array[i];
-
-  if (frequency[array[i]]) {
-    frequency[array[i]] += 1;
-  } else {
-    frequency[array[i]] = 1;
-  }
-
-  if (frequency[array[i]] > maxFrequency) {
-    maxFrequency = frequency[array[i]];
-    mode = array[i];
-  } else if (frequency[array[i]] === maxFrequency) {
-    continue;
-  }
-}
-
-mean = mean / array.length;
-
-return [mean, mode];
   
 }
 
@@ -83,7 +60,7 @@ return [mean, mode];`;
 
   
     const handleRunCode = async (code) => {
-    axios.post("http://localhost:3000/api/executecode", {
+    axios.post(`${VITE_BACKEND_URL}/api/executecode`, {
       language: "javascript",
       code,
     })
@@ -97,7 +74,7 @@ return [mean, mode];`;
     };
 
     const handleAutoGrade = async (code) => {
-        axios.post("http://localhost:3000/api/autograde", {
+        axios.post(`${VITE_BACKEND_URL}/api/autograde`, {
           language: "javascript",
           code,
           testCases: [
@@ -124,8 +101,8 @@ return [mean, mode];`;
     <div className="flex h-screen bg-gray-100">
       <ModuleBar />
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
-        <h2 className="text-2xl font-semibold mb-4 text-rose-700">Exercise 1</h2>
-        <p className="text-gray-700 text-sm">Create a <code>statsFinder()</code> function that takes in a list of numbers and returns a list containing the mean and mode, in that order. As a reminder, the mean is the average of the values and the mode is the most occurring value. If there are multiple modes, return the mode that occurs first.</p>
+        <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 1</h2>
+        <p className="text-gray-700">Create a <code>statsFinder()</code> function that takes in a list of numbers and returns a list containing the mean and mode, in that order. As a reminder, the mean is the average of the values and the mode is the most occurring value. If there are multiple modes, return the mode that occurs first.</p>
         <button className="flex items-center text-sm text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
           <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>
           <strong>Hint:</strong> 

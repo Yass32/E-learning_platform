@@ -8,6 +8,8 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const JavaScriptEx3 = () => {
   const { student_id } = useParams();
 
@@ -52,7 +54,7 @@ const solution = `let n = scores.length;
 */
   
     const handleRunCode = async (code) => {
-    axios.post("http://localhost:3000/api/executecode", {
+    axios.post(`${VITE_BACKEND_URL}/api/executecode`, {
       language: "javascript",
       code,
     })
@@ -66,7 +68,7 @@ const solution = `let n = scores.length;
     };
 
     const handleAutoGrade = async (code) => {
-        axios.post("http://localhost:3000/api/autograde", {
+        axios.post(`${VITE_BACKEND_URL}/api/autograde`, {
           language: "javascript",
           code,
           testCases: [
@@ -91,8 +93,8 @@ const solution = `let n = scores.length;
     <div className="flex h-screen bg-gray-100">
       <ModuleBar />
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
-        <h2 className="text-2xl font-semibold mb-4 text-rose-700">Exercise 3</h2>
-        <p className="text-gray-700 text-sm">Write a <code>scoreSorter()</code> function that will take a list of unsorted scores . It should return a sorted list of all of the scores, in descending order from high to low. </p>
+        <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 3</h2>
+        <p className="text-gray-700">Write a <code>scoreSorter()</code> function that will take a list of unsorted scores . It should return a sorted list of all of the scores, in descending order from high to low. </p>
         <button className="flex items-center text-sm text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
           <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>
           <strong>Hint:</strong> 

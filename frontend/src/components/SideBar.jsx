@@ -29,7 +29,7 @@ const SideBar = ({name, profilePic}) => {
                     <img src={profilePic} alt="profile_picture"
                         className="w-16 h-16 rounded-full mb-4"
                     /> :
-                    <CgProfile className="text-3xl"/>
+                    <CgProfile className="w-16 h-16"/>
                 }
                     
                     <span className="ml-2 overflow-auto text-2xl">{name}</span>
