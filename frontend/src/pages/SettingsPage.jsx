@@ -143,7 +143,7 @@ const SettingsPage = () => {
                                         {/* Profile Picture Upload */}
                                         <div className="flex items-center flex-row">
                                             {/* Display the profile picture or a default icon if not available */}
-                                            {profilePic !== "https://e-learning-platform-ioqt.onrender.comnull"? 
+                                            {profilePicUrl !== "https://e-learning-platform-ioqt.onrender.comnull"? 
                                                 <img src={profilePicUrl} alt="Avatar"
                                                 className="w-24 h-24 rounded-full mb-4"/> 
                                                 :
