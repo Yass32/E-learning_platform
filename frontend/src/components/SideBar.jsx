@@ -25,7 +25,7 @@ const SideBar = ({name, profilePic}) => {
                     Logout
                 </Link>
                 <div className="flex items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 ">
-                {profilePic !== "https://e-learning-platform-ioqt.onrender.comnull/"? 
+                {profilePic !== "https://e-learning-platform-ioqt.onrender.comnull"? 
                     <img src={profilePic} alt="profile_picture"
                         className="w-16 h-16 rounded-full mb-4"
                     /> :

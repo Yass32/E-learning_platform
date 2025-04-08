@@ -22,6 +22,18 @@ const pool = new Pool({
     port: process.env.PGPORT 
 });
 
+console.log(pool.options);
+
+router.get('/test-db', async (req, res) => {
+    try {
+      const result = await pool.query('SELECT * FROM students');
+      res.json(result.rows);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+  
+
 //adds the middleware to parse JSON bodies of incoming requests. Without this, request.body will be undefined
 app.use(express.json());
 
