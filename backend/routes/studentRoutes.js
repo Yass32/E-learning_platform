@@ -171,7 +171,8 @@ router.post("/enroll", async (request, response) => {
         await pool.query(
             `INSERT INTO progress (student_id, course_id, progress_percentage) 
              VALUES ($1, $2, 0) 
-             ON CONFLICT (student_id, course_id) DO NOTHING`
+             ON CONFLICT (student_id, course_id) DO NOTHING`,
+            [student_id, course_id]
         );
 
         if (enrollment.rowCount === 0) {
