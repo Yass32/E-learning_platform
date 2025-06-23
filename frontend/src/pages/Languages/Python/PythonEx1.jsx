@@ -19,18 +19,6 @@ const PythonEx1 = () => {
 
   const { student_id } = useParams();
 
-  useEffect(() => {
-    try{
-      const response = axios.post(`${VITE_BACKEND_URL}/api/hint`, code);
-      console.log("Hint response:", response.data);
-      setHint(response.data.hint);
-    }
-    catch (error) {
-      console.error("Error getting hint:", error);
-      setError("Failed to fetch hint. Please try again later.");
-    }
-  }, [hintVisibility]);
-  
 
   const code = `# Write your same_name function here: 
 def same_name(your_name, my_name):
@@ -46,6 +34,20 @@ def same_name(your_name, my_name):
     const solution = `def same_name(your_name, my_name):
       return your_name==my_name`;
     */
+
+
+
+    useEffect(() => {
+      try{
+        const response = axios.post(`${VITE_BACKEND_URL}/api/hint`, code);
+        console.log("Hint response:", response.data);
+        setHint(response.data.hint);
+      }
+      catch (error) {
+        console.error("Error getting hint:", error);
+        setError("Failed to fetch hint. Please try again later.");
+      }
+    }, [hintVisibility]);
 
 
   
