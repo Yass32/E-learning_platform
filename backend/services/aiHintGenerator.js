@@ -5,7 +5,7 @@ import dotenv from 'dotenv'; // dotenv helps manage environment variables
 dotenv.config(); // Load environment variables from a .env file
 
 // Function to get AI hint based on user code and feedback
-export const getAIHint = async (userCode) => {
+export const getAIHint = async (code) => {
     // Log API key and URL for debugging
     console.log("OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY);
     console.log("API_URL:", process.env.API_URL); // Log the generated prompt for debugging
@@ -27,7 +27,7 @@ export const getAIHint = async (userCode) => {
                 model: "deepseek/deepseek-chat-v3-0324:free", // AI model to use
                 messages: [
                     { role: "system", content: "Give a short, non-spoiler hint to guide the user. Focus on logic, not full answers."}, // System role description
-                    { role: "user", content: userCode } 
+                    { role: "user", content: code } 
                 ],
                 temperature: 0.3 // Lower value for more consistent responses
             },

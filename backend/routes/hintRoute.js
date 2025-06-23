@@ -9,13 +9,13 @@ const router = express.Router();
 router.post('/hint', async (request, response) => {
     try {
         // Extract the user's code from the request body
-        const { userCode } = request.body;
+        const { code } = request.body;
 
         // Log the received answers for debugging
-        console.log("User's code received:", userCode);
+        console.log("User's code received:", code);
 
         // Call the AI hint function with the user's answers
-        const hint = await getAIHint(userCode);
+        const hint = await getAIHint(code);
 
         // Log the AI-generated hint for debugging
         console.log("AI hint generated in hintRoute:", hint);
