@@ -45,7 +45,7 @@ export const getAIRecommendation = async (userAnswers) => {
         const response = await axios.post(
             process.env.API_URL, // Use the API URL from environment variables
             {  
-                model: "deepseek/deepseek-chat-v3-0324:free", // AI model to use
+                model: "deepseek/deepseek-r1-0528:free", // AI model to use
                 messages: [
                     { role: "system", content: "You are an AI assistant that provides concise and well-structured programming recommendations."}, // System role description
                     { role: "user", content: prompt } // User's request to the AI
