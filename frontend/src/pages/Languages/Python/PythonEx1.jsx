@@ -7,7 +7,6 @@ import CodeFeedback from "../../../components/CodeFeedback";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
-import { response } from "express";
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
