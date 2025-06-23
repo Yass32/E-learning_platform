@@ -21,7 +21,7 @@ const PythonEx1 = () => {
 
   useEffect(() => {
     try{
-      const response = axios.post(`${VITE_BACKEND_URL}/api/hint`);
+      const response = axios.post(`${VITE_BACKEND_URL}/api/hint`, code);
       console.log("Hint response:", response.data);
       setHint(response.data.hint);
     }
