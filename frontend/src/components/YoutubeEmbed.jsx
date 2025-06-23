@@ -12,6 +12,7 @@ const YouTubeEmbed = ({url}) => {
         className="absolute w-full"
         width="100%"
         height="100%"
+        origin="https://e-learning-platform-client.onrender.com"
       />
     </div>
   );

@@ -5,7 +5,6 @@ import axios from "axios";
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-
 const ProgressTracker = ({ children, totalLessons, lesson_id, course_id }) => {
     // Get student_id from the URL parameters
     const { student_id } = useParams();
