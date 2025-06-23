@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CodeEditor from "../../../components/CodeEditor";
 import OutputConsole from "../../../components/OutputConsole";
 import ModuleBar from "../../../components/ModuleBar";
@@ -11,13 +11,26 @@ import PageButton from "../../../components/PageButton";
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const PythonEx1 = () => {
-
-  const { student_id } = useParams();
-
-
   const [output, setOutput] = useState("");
   const [feedback, setFeedback] = useState([]);
   const [hintVisibility, setHintVisibility] = useState(false);
+  const [hint, setHint] = useState("");
+  const [error, setError] = useState("");
+
+  const { student_id } = useParams();
+
+  useEffect(() => {
+    try{
+      const response = axios.post(`${VITE_BACKEND_URL}/api/hint`);
+      console.log("Hint response:", response.data);
+      setHint(response.data.hint);
+    }
+    catch (error) {
+      console.error("Error getting hint:", error);
+      setError("Failed to fetch hint. Please try again later.");
+    }
+  }, [hintVisibility]);
+  
 
   const code = `# Write your same_name function here: 
 def same_name(your_name, my_name):
@@ -89,7 +102,7 @@ def same_name(your_name, my_name):
         <div className={`transition-all duration-300 ease-in-out`}
           style={{ maxHeight: hintVisibility ? '100px' : '0', opacity: hintVisibility ? 1 : 0 }}>
           <div className="mt-1 text-sm text-gray-700">
-          In Python, strings can be compared using the <code>==</code> operator.
+            {hint || "In Python, strings can be compared using the <code>==</code> operator."}
           </div>
         </div>
         <CodeEditor code={code} language="python" handleRunCode={handleRunCode} handleAutoGrade={handleAutoGrade}   />
