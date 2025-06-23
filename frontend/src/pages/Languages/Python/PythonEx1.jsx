@@ -41,6 +41,8 @@ def same_name(your_name, my_name):
     useEffect(() => {
       const fetchHint = async () => {
         try {
+          console.log(typeof(code));
+          console.log("Fetching hint for code:", code);
           const response = await axios.post(`${VITE_BACKEND_URL}/api/hint`, { code });
           console.log("Hint response:", response.data);
           setHint(response.data.hint);
