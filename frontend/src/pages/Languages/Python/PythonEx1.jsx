@@ -7,6 +7,7 @@ import CodeFeedback from "../../../components/CodeFeedback";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
+import { response } from "express";
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -38,14 +39,19 @@ def same_name(your_name, my_name):
 
 
     useEffect(() => {
-      try{
-        const response = axios.post(`${VITE_BACKEND_URL}/api/hint`, code);
-        console.log("Hint response:", response.data);
-        setHint(response.data.hint);
-      }
-      catch (error) {
-        console.error("Error getting hint:", error);
-        setError("Failed to fetch hint. Please try again later.");
+      const fetchHint = async () => {
+        try {
+          const response = await axios.post(`${VITE_BACKEND_URL}/api/hint`, { code });
+          console.log("Hint response:", response.data);
+          setHint(response.data.hint);
+        } catch (error) {
+          console.error("Error getting hint:", error);
+          setError("Failed to fetch hint. Please try again later.");
+        }
+      };
+
+      if (!hintVisibility) {
+        fetchHint();
       }
     }, [hintVisibility]);
 

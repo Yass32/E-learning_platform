@@ -73,6 +73,6 @@ export const getAIHint = async (userCode) => {
         }
         
         // Throw a new error to indicate failure
-        throw new Error("Failed to generate AI recommendation: " + (error.message || "Unknown error"));
+        throw new Error("Failed to generate AI hint: " + (error.message || "Unknown error"));
     }
 };
