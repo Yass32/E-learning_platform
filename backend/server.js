@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import executecode from './services/executecode.js';
 import autograde from './services/autograde.js';
 import recommendation from './routes/recommendationRoute.js';
+import hint from './routes/hintRoute.js';
 
 dotenv.config();
 
@@ -41,6 +42,8 @@ app.use('/api', executecode);
 app.use('/api', autograde);
 
 app.use('/api', recommendation);
+
+app.use('/api', hint);
 
 app.use("/uploads", express.static("uploads"));
 
