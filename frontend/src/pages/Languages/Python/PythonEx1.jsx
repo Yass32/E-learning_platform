@@ -4,9 +4,9 @@ import OutputConsole from "../../../components/OutputConsole";
 import ModuleBar from "../../../components/ModuleBar";
 import axios from "axios";
 import CodeFeedback from "../../../components/CodeFeedback";
-import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
+import AIHint from "../../../components/AIHint";
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -39,8 +39,6 @@ def same_name(your_name, my_name):
     useEffect(() => {
       const fetchHint = async () => {
         try {
-          console.log(typeof(code));
-          console.log("Fetching hint for code:", code);
           const response = await axios.post(`${VITE_BACKEND_URL}/api/hint`, { code });
           console.log("Hint response:", response.data);
           setHint(response.data.hint);
@@ -91,12 +89,8 @@ def same_name(your_name, my_name):
           .catch((error) => {
             console.error(error);
             setFeedback("Error in auto-grading.");
-          });
-          
+          }); 
     };
-
-    console.log(feedback)
-
   
 
   return (
@@ -105,17 +99,7 @@ def same_name(your_name, my_name):
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
         <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 1</h2>
         <p className="text-gray-700">Create a function named <code>same_name()</code> that has two parameters named <code>your_name</code> and <code>my_name</code>. If our names are identical, return <code>True</code>. Otherwise, return <code>False</code>.</p>
-        <button className="flex items-center text-sm text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
-          <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>
-          <strong>Hint:</strong> 
-        </button>
-        {/* Hint Text with Slide-In Transition */}
-        <div className={`transition-all duration-300 ease-in-out`}
-          style={{ maxHeight: hintVisibility ? '100px' : '0', opacity: hintVisibility ? 1 : 0 }}>
-          <div className="mt-1 text-sm text-gray-700">
-            {hint || "In Python, strings can be compared using the <code>==</code> operator."}
-          </div>
-        </div>
+        <AIHint hint={hint} setHintVisibility={setHintVisibility} hintVisibility={hintVisibility} />
         <CodeEditor code={code} language="python" handleRunCode={handleRunCode} handleAutoGrade={handleAutoGrade}   />
         
       </div>

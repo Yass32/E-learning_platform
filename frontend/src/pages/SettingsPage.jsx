@@ -117,6 +117,12 @@ const SettingsPage = () => {
         }
     };
     
+    // Helper to partially mask the password
+    const getMaskedPassword = (password) => {
+        if (!password) return '';
+        if (password.length <= 2) return '*'.repeat(password.length);
+        return password[0] + '*'.repeat(password.length - 2) + password[password.length - 1];
+    };
 
     return (
         <>
@@ -175,7 +181,7 @@ const SettingsPage = () => {
                                             <div>
                                                 <label className="block text-gray-500 mb-1">Current password</label>
                                                 <input type="password" disabled
-                                                placeholder={password}
+                                                placeholder={getMaskedPassword(password)}
                                                 className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
                                                 />
                                             </div>

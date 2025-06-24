@@ -1,22 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CodeEditor from "../../../components/CodeEditor";
 import OutputConsole from "../../../components/OutputConsole";
 import ModuleBar from "../../../components/ModuleBar";
 import axios from "axios";
 import CodeFeedback from "../../../components/CodeFeedback";
-import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
+import AIHint from "../../../components/AIHint";
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const PythonEx3 = () => {
-  const { student_id } = useParams();
-
-
   const [output, setOutput] = useState("");
   const [feedback, setFeedback] = useState([]);
   const [hintVisibility, setHintVisibility] = useState(false);
+  const [hint, setHint] = useState("");
+
+  const { student_id } = useParams();
+
 
   const code = `# Write your lots_of_math function here:
 
@@ -41,6 +42,29 @@ const solution = `def lots_of_math(a, b, c, d):
   print(third)
   return fourth`;
 */
+
+
+    useEffect(() => {
+      const fetchHint = async () => {
+        try {
+          console.log(typeof(code));
+          console.log("Fetching hint for code:", code);
+          const response = await axios.post(`${VITE_BACKEND_URL}/api/hint`, { code });
+          console.log("Hint response:", response.data);
+          setHint(response.data.hint);
+        } catch (error) {
+          console.error("Error getting hint:", error);
+          if (error.response?.status === 429) {
+            console.log("Rate limit exceeded. Try again later or upgrade your plan.");
+            setHint("You can store the result of each mathematical operation into a variable and use them as the results in step 4. For example: <code>first_result = a + b</code>. Also, remember that you can take the modulo of a number with %.");
+          }
+        }
+      };
+
+      if (hintVisibility) {
+        fetchHint();
+      }
+    }, [hintVisibility]);
   
     const handleRunCode = async (code) => {
     axios.post(`${VITE_BACKEND_URL}/api/executecode`, {
@@ -84,19 +108,8 @@ const solution = `def lots_of_math(a, b, c, d):
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
         <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 3</h2>
         <p className="text-gray-700">Create a function named <code>lots_of_math()</code>that has 4 parameters named <code>a</code>, <code>b</code>, <code>c</code>, and <code>d</code>. The function should print 3 lines and return 1 value. First, print the sum of <code>a</code> and <code>b</code>. Second, print <code>c</code> minus <code>d</code>. Third, print the first number printed, multiplied by the second number printed. Finally, return the third number printed modulo <code>a</code>.</p>
-        <button className="flex items-center text-sm text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
-          <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>
-          <strong>Hint:</strong> 
-        </button>
-        {/* Hint Text with Slide-In Transition */}
-        <div className={`transition-all duration-300 ease-in-out`}
-          style={{ maxHeight: hintVisibility ? '100px' : '0', opacity: hintVisibility ? 1 : 0 }}>
-          <div className="mt-1 text-xs text-gray-700">
-            You can store the result of each mathematical operation into a variable and use them as the results in step 4. For example: <code>first_result = a + b</code>. Also, remember that you can take the modulo of a number with %.
-          </div>
-        </div>
-        <CodeEditor code={code} language="python" handleRunCode={handleRunCode} handleAutoGrade={handleAutoGrade}   />
-        
+        <AIHint hint={hint} setHintVisibility={setHintVisibility} hintVisibility={hintVisibility} />
+        <CodeEditor code={code} language="python" handleRunCode={handleRunCode} handleAutoGrade={handleAutoGrade}/>
       </div>
       <div className="w-2/5 p-8 overflow-y-auto">
         <OutputConsole output={output} />
