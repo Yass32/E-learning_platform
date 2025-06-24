@@ -15,7 +15,6 @@ const PythonEx1 = () => {
   const [feedback, setFeedback] = useState([]);
   const [hintVisibility, setHintVisibility] = useState(false);
   const [hint, setHint] = useState("");
-  const [error, setError] = useState("");
 
   const { student_id } = useParams();
 
@@ -47,11 +46,10 @@ def same_name(your_name, my_name):
           setHint(response.data.hint);
         } catch (error) {
           console.error("Error getting hint:", error);
-          setError("Failed to fetch hint. Please try again later.");
         }
       };
 
-      if (!hintVisibility) {
+      if (hintVisibility) {
         fetchHint();
       }
     }, [hintVisibility]);

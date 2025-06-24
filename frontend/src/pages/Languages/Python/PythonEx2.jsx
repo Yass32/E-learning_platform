@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CodeEditor from "../../../components/CodeEditor";
 import OutputConsole from "../../../components/OutputConsole";
 import ModuleBar from "../../../components/ModuleBar";
@@ -7,17 +7,18 @@ import CodeFeedback from "../../../components/CodeFeedback";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
+import AIHint from "../../../components/AIHint";
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 const PythonEx2 = () => {
-  const { student_id } = useParams();
-
-
   const [output, setOutput] = useState("");
   const [feedback, setFeedback] = useState([]);
   const [hintVisibility, setHintVisibility] = useState(false);
+  const [hint, setHint] = useState("");
+
+  const { student_id } = useParams();
 
 
   const code = `#Write your function here
@@ -38,6 +39,27 @@ for number in nums:
     maximum = number
 return maximum`;
   */
+
+
+
+
+  useEffect(() => {
+    const fetchHint = async () => {
+      try {
+        console.log(typeof(code));
+        console.log("Fetching hint for code:", code);
+        const response = await axios.post(`${VITE_BACKEND_URL}/api/hint`, { code });
+        console.log("Hint response:", response.data);
+        setHint(response.data.hint);
+      } catch (error) {
+        console.error("Error getting hint:", error);
+      }
+    };
+
+    if (hintVisibility) {
+      fetchHint();
+    }
+  }, [hintVisibility]);
     
   
   const handleRunCode = async (code) => {
@@ -81,6 +103,7 @@ return maximum`;
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
         <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 2</h2>
         <p className="text-gray-700">Create a function named <code>max_num()</code> that takes a list of numbers named <code>nums</code>  as a parameter. The function should return the largest number in <code>nums</code>. The function should return the largest number in <code>nums</code></p>
+        <AIHint hint={hint} hintVisibility={hintVisibility} setHintVisibility={setFeedback}/>
         <button className="flex text-sm items-center text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
           <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>
           <strong>Hint:</strong> 
