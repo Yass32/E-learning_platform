@@ -1,142 +1,158 @@
 # E-Learning Platform
 
-This repository contains the source code for a full-stack web application designed for educational purposes. The project includes a backend built with Node.js and Express, and a frontend built with React and Tailwind CSS. The application provides features such as student management, progress tracking, auto-grading, and more.
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
-- [Usage](#usage)
-- [License](#license)
+A full-stack web application for interactive programming education, supporting Python, JavaScript, and Java. Students can learn through lessons, quizzes, exercises, and track their progress.
 
 ---
 
 ## Features
 
-- **Student Management**: Add, update, and delete student profiles.
-- **Progress Tracking**: Track student progress in courses and lessons.
-- **Auto-Grading**: Automatically grade student submissions with test cases.
-- **Course Enrollment**: Enroll students in courses and manage their progress.
-- **Interactive Frontend**: User-friendly interface for students and administrators.
-- **File Uploads**: Support for uploading profile images.
-- **Recommendation System**: Recommends user career paths based on the Career Questionnaire. 
+- **User Authentication:** Register, login, and manage student accounts.
+- **Course Dashboard:** Browse and enroll in Python, JavaScript, and Java courses.
+- **Dynamic Lessons:** Modular lesson structure with dynamic routing and lazy loading.
+- **Interactive Code Editor:** Write, run, and auto-grade code directly in the browser.
+- **AI-Powered Hints:** Get context-aware hints for coding exercises using AI.
+- **AI Recommendation Questionnaire:** Upon registration, students can fill out a questionnaire. The AI analyzes their answers and recommends the most suitable programming language to start with.
+- **Progress Tracking:** Track lesson completion and course progress.
+- **Profile & Settings:** Update personal info, change password, and upload a profile picture.
+- **Responsive Design:** Modern UI with Tailwind CSS, optimized for all devices.
 
 ---
 
-## Technologies Used
+## Tech Stack
 
-### Backend:
-- **Node.js**: JavaScript runtime for building the server.
-- **Express**: Web framework for creating RESTful APIs.
-- **PostgreSQL**: Database for storing student and course data.
-- **pg**: PostgreSQL client for Node.js.
-- **uuid**: For generating unique IDs.
-- **Multer**: For handling file uploads.
-- **OpenRouter**: Provides AI models.
-
-### Frontend:
-- **React**: JavaScript library for building user interfaces.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **Vite**: Build tool for fast development.
+- **Frontend:** React, React Router, Axios, Tailwind CSS
+- **Backend:** Node.js, Express, PostgreSQL
+- **AI Integration:** OpenRouter API for AI hints and recommendations
+- **Other:** Multer (file uploads), dotenv (env management)
 
 ---
 
-## Project Structure
+## Getting Started
 
-### Backend (`/backend`):
-```
-backend/
-├── package.json          # Backend dependencies
-├── server.js             # Entry point for the backend server
-├── routes/               # API route handlers
-│   ├── recommendationRoute.js
-│   ├── studentRoutes.js
-├── services/             # Service logic for specific features
-│   ├── autograde.js
-│   ├── executecode.js
-│   ├── openrouterService.js
-├── uploads/              # Uploaded files (e.g., profile images)
-│   ├── 1742847897217-profile image.jpg
-│   ├── 1742848623465-profile image.jpg
-```
+### Prerequisites
 
-### Frontend (`/frontend`):
-```
-frontend/
-├── .gitignore            # Files to ignore in Git
-├── eslint.config.js      # ESLint configuration
-├── index.html            # Main HTML file
-├── package.json          # Frontend dependencies
-├── postcss.config.js     # PostCSS configuration
-├── README.md             # Frontend-specific README
-├── tailwind.config.js    # Tailwind CSS configuration
-├── vite.config.js        # Vite configuration
-├── public/               # Static assets
-│   ├── vite.svg
-├── src/                  # Source code
-│   ├── App.jsx           # Main React component
-│   ├── index.css         # Global CSS
-│   ├── main.jsx          # Entry point for React
-│   ├── assets/           # Images and other assets
-│   ├── components/       # Reusable React components
-│   ├── pages/            # Page-specific React components
-```
-
----
-
-## Setup Instructions
-
-### Prerequisites:
-- Node.js (v16 or higher)
-- PostgreSQL
+- Node.js (v16+)
 - npm or yarn
+- PostgreSQL database
 
-### Backend Setup:
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Set up the PostgreSQL database and configure the connection in `server.js`.
-4. Start the backend server:
-   ```bash
-   npm start
-   ```
+### Environment Variables
 
-### Frontend Setup:
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+Create a `.env` file in both `backend/` and `frontend/` directories.
+
+#### Backend `.env` example:
+```
+PORT=3000
+DATABASE_URL=postgres://user:password@localhost:5432/yourdb
+OPENROUTER_API_KEY=your_openrouter_api_key
+API_URL=https://openrouter.ai/api/v1/chat/completions
+```
+
+#### Frontend `.env` example:
+```
+VITE_BACKEND_URL=http://localhost:3000
+```
+
+---
+
+### Installation
+
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/e-learning-platform.git
+cd e-learning-platform
+```
+
+#### 2. Install dependencies
+
+```bash
+cd backend
+npm install
+cd ../frontend
+npm install
+```
+
+#### 3. Set up the database
+
+- Create a PostgreSQL database.
+- Run the SQL scripts in `backend/db/` to create tables (`students`, `courses`, `enrollments`, `progress`, etc.).
+
+#### 4. Start the backend server
+
+```bash
+cd backend
+npm start
+```
+
+#### 5. Start the frontend development server
+
+```bash
+cd frontend
+npm run dev
+```
 
 ---
 
 ## Usage
 
-1. Open the frontend in your browser at `http://localhost:5173`.
-2. Use the application to manage students, track progress, and auto-grade submissions.
-3. The backend API runs at `http://localhost:3000`.
+- Visit `http://localhost:5173` (or the port shown in your terminal).
+- Register as a new student or log in.
+- On registration, fill out the AI Recommendation Questionnaire to get a personalized language suggestion.
+- Browse courses, start lessons, and complete exercises.
+- Use the code editor to solve problems and get instant feedback.
+- Track your progress and update your profile in the settings page.
+
+---
+
+## Project Structure
+
+```
+backend/
+  ├── db/                # Database schema and seed files
+  ├── routes/            # Express route handlers
+  ├── services/          # Business logic (AI, etc.)
+  ├── uploads/           # Uploaded profile pictures
+  └── index.js           # Entry point
+
+frontend/
+  ├── src/
+  │   ├── components/    # Reusable React components
+  │   ├── pages/         # Page-level components and lessons
+  │   ├── App.jsx        # Main app and routing
+  │   └── ...            # Other source files
+  └── ...
+```
+
+---
+
+## Deployment
+
+- Set environment variables for production in your hosting provider.
+- Ensure CORS is configured on the backend to allow frontend requests.
+- Use services like Render, Vercel, or Netlify for deployment.
+
+---
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a pull request
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-```
+This project is licensed under the MIT License.
 
-This `README.md` provides a comprehensive overview of your project, including its features, technologies, structure, and setup instructions. You can customize it further based on your specific requirements.
+---
+
+## Acknowledgements
+
+- [OpenRouter](https://openrouter.ai/) for AI-powered hints and recommendations
+- [Tailwind CSS](https://tailwindcss.com/) for UI styling
+- [React](https://react.dev/) for the frontend framework
+
+---
