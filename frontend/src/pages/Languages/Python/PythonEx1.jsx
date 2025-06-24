@@ -46,6 +46,10 @@ def same_name(your_name, my_name):
           setHint(response.data.hint);
         } catch (error) {
           console.error("Error getting hint:", error);
+          if (error.response?.status === 429) {
+            console.log("Rate limit exceeded. Try again later or upgrade your plan.");
+            setHint("In Python, strings can be compared using the <code>==</code> operator.")
+          }
         }
       };
 

@@ -53,6 +53,10 @@ return maximum`;
         setHint(response.data.hint);
       } catch (error) {
         console.error("Error getting hint:", error);
+        if (error.response?.status === 429) {
+          console.log("Rate limit exceeded. Try again later or upgrade your plan.");
+          setHint("Create a variable called <code>maximum</code> to track the max number, and have it start as the first element in the list. Loop through all of the numbers in the list, and if a number is ever greater than the current max number, the max number should be re-set to that number.");
+        }
       }
     };
 
