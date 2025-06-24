@@ -107,7 +107,7 @@ return maximum`;
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
         <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 2</h2>
         <p className="text-gray-700">Create a function named <code>max_num()</code> that takes a list of numbers named <code>nums</code>  as a parameter. The function should return the largest number in <code>nums</code>. The function should return the largest number in <code>nums</code></p>
-        <AIHint hint={hint} hintVisibility={hintVisibility} setHintVisibility={setFeedback}/>
+        <AIHint hint={hint} hintVisibility={hintVisibility} setHintVisibility={setHintVisibility}/>
         <button className="flex text-sm items-center text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
           <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>
           <strong>Hint:</strong> 
