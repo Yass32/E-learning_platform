@@ -4,7 +4,6 @@ import OutputConsole from "../../../components/OutputConsole";
 import ModuleBar from "../../../components/ModuleBar";
 import axios from "axios";
 import CodeFeedback from "../../../components/CodeFeedback";
-import { BiSolidRightArrow } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import PageButton from "../../../components/PageButton";
 import AIHint from "../../../components/AIHint";
@@ -108,18 +107,6 @@ return maximum`;
         <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 2</h2>
         <p className="text-gray-700">Create a function named <code>max_num()</code> that takes a list of numbers named <code>nums</code>  as a parameter. The function should return the largest number in <code>nums</code>. The function should return the largest number in <code>nums</code></p>
         <AIHint hint={hint} hintVisibility={hintVisibility} setHintVisibility={setHintVisibility}/>
-        <button className="flex text-sm items-center text-gray-600 hover:text-rose-700 focus:outline-none" onClick={() => setHintVisibility(!hintVisibility)}>
-          <BiSolidRightArrow  className={`inline-block size- mr-1 transition-transform ${hintVisibility ? "rotate-90" : ""}`}/>
-          <strong>Hint:</strong> 
-        </button>
-        {/* Hint Text with Slide-In Transition */}
-        <div className={`transition-all duration-300 ease-in-out`}
-          style={{ maxHeight: hintVisibility ? '100px' : '0', opacity: hintVisibility ? 1 : 0 }}>
-          <div className="mt-1 text-sm text-gray-700">
-            Create a variable called <code>maximum</code> to track the max number, and have it start as the first element in the list. Loop through all of the numbers in the list, and if a number is ever greater than the current max number, the max number should be re-set to that number.
-          </div>
-        </div>
-
         <CodeEditor code={code} language="python" handleRunCode={handleRunCode} handleAutoGrade={handleAutoGrade}   />        
       </div>
 
