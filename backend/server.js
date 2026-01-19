@@ -56,7 +56,7 @@ app.get('/', async (_, res) => {
 
 // Start the server after successful database connection
 app.listen(PORT, () => {
-  console.log(`Listening to http://localhost:${PORT}`);
+  console.log(`App is listening to port:${PORT}`);
 });
 
 //The pool is exported so other files (like route handlers) can reuse the same database connection pool

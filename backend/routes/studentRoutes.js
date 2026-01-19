@@ -70,18 +70,18 @@ router.post('/register', async (request, response) => {
 
 // Route to handle student login
 router.post('/login', async (request, response) => {
-    const { full_name, password } = request.body;
+    const { email, password } = request.body;
 
     // Validate if required fields are provided
-    if (!full_name || !password) {
+    if (!email || !password) {
         return response.status(400).send("Please provide fullname and password");
     }
 
     try {
-        // Check if the student exists with the given full_name and password
+        // Check if the student exists with the given email and password
         const loggedStudent = await pool.query(
-            'SELECT student_id, full_name FROM students WHERE full_name = $1 AND password_hash = $2',
-            [full_name, password]
+            'SELECT student_id, email FROM students WHERE email = $1 AND password_hash = $2',
+            [email, password]
         );
 
         // If no user is found, return an error

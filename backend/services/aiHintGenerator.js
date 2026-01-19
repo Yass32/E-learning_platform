@@ -24,7 +24,7 @@ export const getAIHint = async (code) => {
         const response = await axios.post(
             process.env.API_URL, // API endpoint from environment variables
             {  
-                model: "deepseek/deepseek-chat-v3-0324:free", // AI model to use
+                model: "xiaomi/mimo-v2-flash:free", // AI model to use
                 messages: [
                     { role: "system", content: "Give a short, non-spoiler hint to guide the user. Focus on logic, not full answers."}, // System role description
                     { role: "user", content: code } 
