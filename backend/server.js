@@ -14,15 +14,10 @@ dotenv.config();
 //An Express application instance is created.
 const app = express();
 
-// PostgreSQL connection pool
+// PostgreSQL connection pool - using Neon DATABASE_URL
 const pool = new Pool({
-    user: process.env.PGUSER,
-    host:process.env.PGHOST,
-    database: process.env.PGDATABASE,
-    password: process.env.PGPASSWORD,
-    port: process.env.PGPORT,
-    ssl: false
-
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
 });  
 
 //adds the middleware to parse JSON bodies of incoming requests. Without this, request.body will be undefined
