@@ -8,7 +8,7 @@ import axios from 'axios';
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const LoginPage = () => {
-    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
@@ -16,7 +16,7 @@ const LoginPage = () => {
     const navigate = useNavigate();
 
     const handleLogin = () => {
-        const user = { full_name: fullName, password: password };
+        const user = { email: email, password: password };
 
         console.log("Sending login request with data:", user); // Debug payload
 
@@ -61,13 +61,13 @@ const LoginPage = () => {
                         </h2>
 
                         <form className="flex flex-col space-y-3 text-xl">
-                            {/* Name Field */}
+                            {/* Email Field */}
                             <div>
-                                <label className="block text-white mb-1" htmlFor="name">
-                                Full Name
+                                <label className="block text-white mb-1" htmlFor="email">
+                                Email
                                 </label>
-                                <input type="text" id="name" placeholder="Enter your name"
-                                value={fullName} onChange={(e) => setFullName(e.target.value)}
+                                <input type="text" id="email" placeholder="Enter your email"
+                                value={email} onChange={(e) => setEmail(e.target.value)}
                                 className="w-full p-1 rounded-md bg-white bg-opacity-70 text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
                                 />
                             </div>
