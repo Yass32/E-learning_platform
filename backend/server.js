@@ -14,12 +14,6 @@ dotenv.config();
 //An Express application instance is created.
 const app = express();
 
-// PostgreSQL connection pool - using Neon DATABASE_URL
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
-});  
-
 //adds the middleware to parse JSON bodies of incoming requests. Without this, request.body will be undefined
 app.use(express.json());
 
@@ -45,17 +39,25 @@ app.use('/api', hint);
 app.use("/uploads", express.static("uploads"));
 
 
-pool.connect()
-.then(() => {
-    console.log("Connected to PostgreSQL database");
-    app.listen(process.env.PGPORT, () => {
-        console.log(`App is listening to port: ${process.env.PGPORT}`);
-    });
-})
-.catch(error => {
-    console.error("Database connection error:", error);
+
+// PostgreSQL connection pool - Using the connection string is safer and easier
+const PORT = process.env.PORT || 4242;
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+});
+// Test database connection
+app.get('/', async (_, res) => {  
+  const client = await pool.connect();
+  const result = await client.query('SELECT version()');
+  client.release();
+  const { version } = result.rows[0];
+  res.json({ version });
 });
 
+// Start the server after successful database connection
+app.listen(PORT, () => {
+  console.log(`Listening to http://localhost:${PORT}`);
+});
 
 //The pool is exported so other files (like route handlers) can reuse the same database connection pool
 export {pool};
