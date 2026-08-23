@@ -14,7 +14,7 @@ const PyM1Lesson3 = () => {
                 <ModuleBar/>
         
                 {/* Full-Width Right Column */}
-                <main className="flex-1 bg-gray-100 p-8 overflow-auto">
+                <main className="flex-1 bg-surface p-8 overflow-auto">
                     <div className="mb-4">
                         <h2 className="text-3xl font-bold text-rose-700">Operators</h2>   
                     </div>
@@ -29,7 +29,7 @@ const PyM1Lesson3 = () => {
                     <section>
                         <p className="mt-6 font-semibold text-lg">Arithmetic Operators</p>
                         <p className="text-gray-600">Arithmetic operators are used to perform mathematical operations such as addition, subtraction, multiplication, and division.</p>
-                        <div className="mt-2 bg-gray-100 p-4 rounded-lg shadow-md">
+                        <div className="mt-2 bg-surface p-4 rounded-lg shadow-md">
                             <div className="overflow-x-auto">
                                 <table className="table-auto mt-3 w-full border border-gray-300 rounded-lg text-left">
                                     <thead className="bg-gray-800 text-white">
@@ -40,38 +40,38 @@ const PyM1Lesson3 = () => {
                                     </tr>
                                     </thead>
                                     <tbody className="bg-white">
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">+</td>
                                         <td className="px-4 py-2 border border-gray-300">Addition</td>
                                         <td className="px-4 py-2 border border-gray-300">5 + 3 = 8</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">-</td>
                                         <td className="px-4 py-2 border border-gray-300">Subtraction</td>
                                         <td className="px-4 py-2 border border-gray-300">10 - 4 = 6</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">*</td>
                                         <td className="px-4 py-2 border border-gray-300">Multiplication</td>
                                         <td className="px-4 py-2 border border-gray-300">7 * 6 = 42</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">/</td>
                                         <td className="px-4 py-2 border border-gray-300">Division</td>
                                         <td className="px-4 py-2 border border-gray-300">25 / 5 = 5</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">{'//'}</td>
                                         <td className="px-4 py-2 border border-gray-300">Floor Division</td>
                                         <td className="px-4 py-2 border border-gray-300">10 // 3 = 3</td>
                                     </tr>
 
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">%</td>
                                         <td className="px-4 py-2 border border-gray-300">Modulus</td>
                                         <td className="px-4 py-2 border border-gray-300">10 % 3 = 1</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">**</td>
                                         <td className="px-4 py-2 border border-gray-300">Exponentiation</td>
                                         <td className="px-4 py-2 border border-gray-300">2 ** 3 = 8</td>
@@ -85,7 +85,7 @@ const PyM1Lesson3 = () => {
                     <section>
                         <p className="mt-6 font-semibold text-lg">Comparison Operators</p>
                         <p className="text-gray-600">Comparison operators are used to compare two values and return a boolean (True or False).</p>
-                        <div className="mt-2 bg-gray-100 p-4 rounded-lg shadow-md">
+                        <div className="mt-2 bg-surface p-4 rounded-lg shadow-md">
                             <div className="overflow-x-auto">
                                 <table className="table-auto mt-3 w-full border border-gray-300 rounded-lg text-left">
                                     <thead className="bg-gray-800 text-white">
@@ -96,32 +96,32 @@ const PyM1Lesson3 = () => {
                                     </tr>
                                     </thead>
                                     <tbody className="bg-white">
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">==</td>
                                         <td className="px-4 py-2 border border-gray-300">Equal to</td>
                                         <td className="px-4 py-2 border border-gray-300">5 == 3 = False</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">!=</td>
                                         <td className="px-4 py-2 border border-gray-300">Not equal to</td>
                                         <td className="px-4 py-2 border border-gray-300">5 != 2 = True</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">&gt;</td>
                                         <td className="px-4 py-2 border border-gray-300">Greater than</td>
                                         <td className="px-4 py-2 border border-gray-300">5 &gt; 10 = False</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">&lt;</td>
                                         <td className="px-4 py-2 border border-gray-300">Less than</td>
                                         <td className="px-4 py-2 border border-gray-300">10 &lt; 5 = False</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">&gt;=</td>
                                         <td className="px-4 py-2 border border-gray-300">Greater than or equal to</td>
                                         <td className="px-4 py-2 border border-gray-300">10 &gt;= 10 = True</td>
                                     </tr>
-                                    <tr className="hover:bg-gray-100">
+                                    <tr className="hover:bg-surface">
                                         <td className="px-4 py-2 border border-gray-300 text-center">&lt;=</td>
                                         <td className="px-4 py-2 border border-gray-300">Less than or equal to</td>
                                         <td className="px-4 py-2 border border-gray-300">15 &lt;= 7 = False</td>
@@ -136,7 +136,7 @@ const PyM1Lesson3 = () => {
                     <section>
                         <p className="mt-6 font-semibold text-lg">Logical & Bitwise Operators</p>
                         <p className="text-gray-600">Operators are used to perform operations on values and variables. These are the special symbols that carry out arithmetic and logical computations. The value the operator operates on is known as the Operand.</p>
-                        <div className="mt-2 bg-gray-100 p-4 rounded-lg shadow-md">
+                        <div className="mt-2 bg-surface p-4 rounded-lg shadow-md">
                             <div className="overflow-x-auto">
                                 <table className="table-auto mt-3 w-full border border-gray-300 rounded-lg text-left">
                                     <thead className="bg-gray-800 text-white">
@@ -147,17 +147,17 @@ const PyM1Lesson3 = () => {
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white">
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">and</td>
                                             <td className="px-4 py-2 border border-gray-300">Returns True if both statements are true</td>
                                             <td className="px-4 py-2 border border-gray-300">{"(5 > 3) and (7 > 5) = True"}</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">or</td>
                                             <td className="px-4 py-2 border border-gray-300">Returns True if at least one statement is true</td>
                                             <td className="px-4 py-2 border border-gray-300">{"(5 > 10) or (10 > 5) = True"}</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">not</td>
                                             <td className="px-4 py-2 border border-gray-300">Reverses the result</td>
                                             <td className="px-4 py-2 border border-gray-300">{"not(5 > 3) = False"}</td>

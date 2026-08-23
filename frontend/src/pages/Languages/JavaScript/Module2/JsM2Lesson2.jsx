@@ -22,7 +22,7 @@ console.log(true && false); // false
                 <ModuleBar/>
         
                 {/* Full-Width Right Column */}
-                <main className="flex-1 bg-gray-100 p-8 overflow-auto">
+                <main className="flex-1 bg-surface p-8 overflow-auto">
                     <div className="mb-4">
                         <h2 className="text-3xl font-bold text-rose-700">Operators</h2>
                         <p>Operators perform actions on variables and values.</p>
@@ -30,7 +30,7 @@ console.log(true && false); // false
 
                     <section>
                         <p className="mt-4 font-medium text-gray-600">Common JavaScript Operators</p>
-                        <div className="mt-2 bg-gray-100 p-4 rounded-lg shadow-md">
+                        <div className="mt-2 bg-surface p-4 rounded-lg shadow-md">
                             <div className="overflow-x-auto">
                                 <table className="table-auto mt-3 w-full border border-gray-300 rounded-lg text-left">
                                     <thead className="bg-gray-800 text-white">
@@ -40,15 +40,15 @@ console.log(true && false); // false
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white">
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">Arithmetic</td>
                                             <td className="px-4 py-2 border border-gray-300">	+, -, *, /, %</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">Comparison</td>
                                             <td className="px-4 py-2 border border-gray-300">==, ===, !=, {'>'}, {'<'} </td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">Logical</td>
                                             <td className="px-4 py-2 border border-gray-300">&&, ||</td>
                                         </tr>

@@ -101,7 +101,7 @@ return maximum`;
   
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-surface">
       <ModuleBar />
       <div className="flex flex-col w-3/5 p-8 overflow-y-auto">
         <h2 className="text-3xl font-semibold mb-4 text-rose-700">Exercise 2</h2>

@@ -31,7 +31,7 @@ const JvM3Lesson1 = () => {
                 <ModuleBar/>
         
                 {/* Full-Width Right Column */}
-                <main className="flex-1 bg-gray-100 p-8 overflow-auto">
+                <main className="flex-1 bg-surface p-8 overflow-auto">
                     <div className="mb-4">
                         <h2 className="text-3xl font-bold text-rose-700">Classes and Objects</h2>
                         <p>In Java, classes and objects are basic concepts of Object Oriented Programming (OOPs) that are used to represent real-world concepts and entities. The class represents a group of objects having similar properties and behavior. For example, the animal type Dog is a class while a particular dog named Tommy is an object of the Dog class.</p>
@@ -55,7 +55,7 @@ const JvM3Lesson1 = () => {
 
                     <section>
                         <p className="mt-10 font-medium text-gray-600">Difference Between Java Classes and Objects</p>
-                        <div className=" bg-gray-100 p-4 rounded-lg shadow-md">
+                        <div className=" bg-surface p-4 rounded-lg shadow-md">
                             <div className="overflow-x-auto">
                                 <table className="table-auto mt-3 w-full border border-gray-300 rounded-lg text-left">
                                     <thead className="bg-gray-800 text-white">
@@ -65,19 +65,19 @@ const JvM3Lesson1 = () => {
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white">
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">Class is the blueprint of an object. It is used to create objects</td>
                                             <td className="px-4 py-2 border border-gray-300">An object is an instance of the class</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center"> No memory is allocated when a class is declared</td>
                                             <td className="px-4 py-2 border border-gray-300">Memory is allocated as soon as an object is created</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">A class is a group of similar objects</td>
                                             <td className="px-4 py-2 border border-gray-300">An object is a real-world entity</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">A class can only be declared once</td>
                                             <td className="px-4 py-2 border border-gray-300">Objects can be created many times</td>
                                         </tr>

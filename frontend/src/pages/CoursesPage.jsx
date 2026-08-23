@@ -3,6 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import SideBar from '../components/SideBar';
 import Loading from '../components/Loading';
 import axios from 'axios';
+import { FaPython, FaJava } from 'react-icons/fa';
+import { SiJavascript } from 'react-icons/si';
+import { LuArrowRight } from 'react-icons/lu';
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -17,9 +20,9 @@ const CoursesPage = () => {
     const navigate = useNavigate();
 
     const Courses = [
-        { "name": "Python", "course_id": 1, "path": "/python/module1/lesson1" },
-        { "name": "JavaScript", "course_id": 2, "path": "/javascript/module1/lesson1" },
-        { "name": "Java", "course_id": 3, "path": "/java/module1/lesson1" }
+        { "name": "Python", "course_id": 1, "path": "/python/module1/lesson1", icon: FaPython, color: "from-sky-500 to-emerald-500" },
+        { "name": "JavaScript", "course_id": 2, "path": "/javascript/module1/lesson1", icon: SiJavascript, color: "from-yellow-400 to-amber-500" },
+        { "name": "Java", "course_id": 3, "path": "/java/module1/lesson1", icon: FaJava, color: "from-orange-500 to-red-600" }
     ];
 
     useEffect(() => {
@@ -89,35 +92,46 @@ const CoursesPage = () => {
                 <div className="flex h-screen">
                     <SideBar name={fullName} profilePic={profilePicUrl}/>
 
-                    <main className="ml-[22%] flex-1 bg-gray-100 p-8 overflow-auto">
-                        <div className="mb-4">
-                            <h2 className="text-4xl font-bold text-gray-800">Welcome Back!</h2>
-                            <p className="text-gray-600 mt-2 text-lg">
+                    <main className="ml-[22%] flex-1 bg-surface p-10 overflow-auto">
+                        <div className="mb-8">
+                            <h2 className="text-4xl font-extrabold text-ink-900">Welcome back{fullName ? `, ${fullName.split(' ')[0]}` : ''}!</h2>
+                            <p className="text-gray-500 mt-2 text-lg">
                                 Start your coding journey.
                             </p>
                         </div>
 
                         {message && (
-                            <div className="text-red-500 mb-4">
+                            <div className="text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3 mb-6">
                                 {message}
                             </div>
                         )}
 
-                        <div className="mt-8 grid grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {Courses.map(course => {
                                 const isEnrolled = enrolledCourses.includes(course.course_id);
+                                const Icon = course.icon;
 
                                 return (
                                     <div
-                                        className="bg-white p-4 shadow rounded hover:scale-105 transform transition-all duration-300"
+                                        className="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transform transition-all duration-300"
                                         key={course.course_id}
                                     >
-                                        <p className="text-2xl font-semibold">{course.name}</p>
+                                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${course.color} flex items-center justify-center mb-5 shadow-md`}>
+                                            <Icon className="text-white text-2xl" />
+                                        </div>
+                                        <p className="text-xl font-bold text-ink-900 mb-1">{course.name}</p>
+                                        <p className="text-sm text-gray-400 mb-5">
+                                            {isEnrolled ? "Continue where you left off" : "Start learning from the basics"}
+                                        </p>
                                         <button
-                                            
-                                            className={`text-white rounded-md p-2 w-fit text-lg ${isEnrolled ? 'bg-blue-500 hover:bg-blue-800' : 'bg-rose-600 hover:bg-rose-800'}`}
+                                            className={`flex items-center gap-2 rounded-lg px-4 py-2 w-fit text-sm font-semibold transition-all duration-200 ${
+                                                isEnrolled
+                                                    ? 'bg-ink-900 text-white hover:bg-ink-800'
+                                                    : 'bg-rose-600 text-white hover:bg-rose-700'
+                                            }`}
                                             onClick={() => isEnrolled ? navigate(`/${student_id}${course.path}`) : handleEnrollment(course)}>
                                             {isEnrolled ? "Continue" : "Enroll"}
+                                            <LuArrowRight className="group-hover:translate-x-0.5 transition-transform" />
                                         </button>
                                     </div>
                                 );

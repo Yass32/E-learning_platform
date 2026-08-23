@@ -16,7 +16,7 @@ const PyM4Lesson1 = () => {
                 <ModuleBar/>
         
                 {/* Full-Width Right Column */}
-                <main className="flex-1 bg-gray-100 p-8 overflow-auto">
+                <main className="flex-1 bg-surface p-8 overflow-auto">
                     <div className="mb-4">
                         <h2 className="text-3xl font-bold text-rose-700">Lists & Tuples</h2>   
                     </div>
@@ -64,7 +64,7 @@ const PyM4Lesson1 = () => {
 
                     <section>
                         <p className="mt-6 font-semibold text-lg">Differences between Lists and Tuples</p>
-                        <div className="mt-2 bg-gray-100 p-4 rounded-lg shadow-md">
+                        <div className="mt-2 bg-surface p-4 rounded-lg shadow-md">
                             <div className="overflow-x-auto">
                                 <table className="table-auto mt-3 w-full border border-gray-300 rounded-lg text-left">
                                     <thead className="bg-gray-800 text-white">
@@ -75,22 +75,22 @@ const PyM4Lesson1 = () => {
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white">
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">Mutability</td>
                                             <td className="px-4 py-2 border border-gray-300">Mutable</td>
                                             <td className="px-4 py-2 border border-gray-300">Immutable</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">Syntax</td>
                                             <td className="px-4 py-2 border border-gray-300">Square brackets []</td>
                                             <td className="px-4 py-2 border border-gray-300">Parentheses ()</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">Performance</td>
                                             <td className="px-4 py-2 border border-gray-300">Slower due to mutability</td>
                                             <td className="px-4 py-2 border border-gray-300">Faster due to immutability</td>
                                         </tr>
-                                        <tr className="hover:bg-gray-100">
+                                        <tr className="hover:bg-surface">
                                             <td className="px-4 py-2 border border-gray-300 text-center">Use Cases</td>
                                             <td className="px-4 py-2 border border-gray-300">Dynamic collections</td>
                                             <td className="px-4 py-2 border border-gray-300">Fixed, constant data</td>

@@ -33,12 +33,12 @@ const JavaQuiz = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-surface">
       {/* Sidebar navigation */}
       <ModuleBar />
 
       {/* Main content area */}
-      <main className="flex-1 bg-gray-100 p-8 overflow-auto">
+      <main className="flex-1 bg-surface p-8 overflow-auto">
         {/* Quiz title */}
         <div className="mb-4">
           <h2 className="text-3xl font-bold text-rose-700">Quiz</h2>
@@ -56,7 +56,7 @@ const JavaQuiz = () => {
             {item.options.map((option, optionIndex) => (
               <div
                 key={`${questionIndex}-${optionIndex}`} // Unique key for each option
-                className="flex items-center p-4 bg-gray-100 border rounded-lg hover:border-rose-500 cursor-pointer"
+                className="flex items-center p-4 bg-surface border rounded-lg hover:border-rose-500 cursor-pointer"
               >
                 {/* Radio input for the option */}
                 <input

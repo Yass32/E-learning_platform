@@ -5,6 +5,10 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import Questionnaire from '../components/Questionnaire';
+import { FaPython, FaJava } from 'react-icons/fa';
+import { SiJavascript } from 'react-icons/si';
+
+const courseIcons = { 1: FaPython, 2: SiJavascript, 3: FaJava };
 
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -125,14 +129,14 @@ const ProfilePage = () => {
                     <SideBar name={fullName} profilePic={profilePicUrl}/>
             
                     {/* Full-Width Right Column */}
-                    <main className="ml-[22%] flex-1 bg-gray-100 p-8 overflow-auto">
-                        <div className="mb-2">
-                            <h1 className="text-4xl font-bold text-gray-800">Hello {fullName} !</h1>
+                    <main className="ml-[22%] flex-1 bg-surface p-10 overflow-auto">
+                        <div className="mb-1">
+                            <h1 className="text-4xl font-extrabold text-ink-900">Hello {fullName}!</h1>
                         </div>
-                        <div className="mb-4 text-lg">
-                            <p className=" text-gray-600">Not sure where to begin? 
-                                <a className="text-rose-700 hover:underline cursor-pointer"
-                                onClick={() => setShowQuestionnaire(!showQuestionnaire)}> Take our quiz →</a>                
+                        <div className="mb-8 text-base">
+                            <p className="text-gray-500">Not sure where to begin?
+                                <a className="text-rose-600 font-semibold hover:underline cursor-pointer ml-1"
+                                onClick={() => setShowQuestionnaire(!showQuestionnaire)}>Take our quiz →</a>
                             </p>
                         </div>
 
@@ -140,32 +144,42 @@ const ProfilePage = () => {
 
 
                         {/* Course Cards */}
-                        {courses.map(course => {
-                            return (
-                                <div className="mt-6 " key={course.course_id}>
-                                    <div className="bg-white p-3 shadow rounded hover:scale-105 transform transition-all duration-300 hover:cursor-pointer">
-                                        <h3 className="text-2xl font-semibold text-gray-600">{course.name}</h3>
-                                        {/* Progress Bar */}
-                                        <div className="w-full bg-gray-200 mt-2 rounded-full overflow-hidden">
-                                            <div className="bg-blue-500 h-full  text-center text-white text-xs font-bold transition-all duration-300 ease-in-out "
-                                            style={{ width: `${course.courseCompletion}%` }}>
-                                                {course.courseCompletion}%
+                        <div className="space-y-4">
+                            {courses.map(course => {
+                                const Icon = courseIcons[course.course_id];
+                                return (
+                                    <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300" key={course.course_id}>
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-11 h-11 rounded-lg bg-ink-950 flex items-center justify-center shrink-0">
+                                                <Icon className="text-rose-500 text-xl" />
+                                            </div>
+                                            <div className="flex-1">
+                                                <div className="flex items-center justify-between mb-1.5">
+                                                    <h3 className="text-lg font-bold text-ink-900">{course.name}</h3>
+                                                    <span className="text-sm font-semibold text-gray-500">{course.courseCompletion}%</span>
+                                                </div>
+                                                {/* Progress Bar */}
+                                                <div className="w-full bg-surface h-2.5 rounded-full overflow-hidden">
+                                                    <div className="bg-gradient-to-r from-rose-500 to-rose-600 h-full rounded-full transition-all duration-500 ease-out"
+                                                    style={{ width: `${course.courseCompletion}%` }}>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {/* Reset Button */}
-                                    <div className='flex justify-between mt-2'>
-                                        <div className="text-red-500">
-                                            {course.message}
+                                        {/* Reset Button */}
+                                        <div className='flex justify-between items-center mt-3'>
+                                            <div className="text-sm text-rose-600">
+                                                {course.message}
+                                            </div>
+                                            <button className="text-gray-500 text-sm font-semibold hover:text-rose-600 transition-colors duration-200"
+                                                onClick={handleReset(course.course_id)}>
+                                                Reset progress
+                                            </button>
                                         </div>
-                                        <button className="text-white bg-rose-600 rounded-md p-2 w-fit text-lg hover:bg-rose-800 transition-all duration-200"
-                                            onClick={handleReset(course.course_id)}> 
-                                            Reset
-                                        </button>
                                     </div>
-                                </div>
-                            )
-                        })}
+                                )
+                            })}
+                        </div>
                     </main>
                 </div>
             )}

@@ -42,7 +42,7 @@ class Geeks {
                 <ModuleBar/>
         
                 {/* Full-Width Right Column */}
-                <main className="flex-1 bg-gray-100 p-8 overflow-auto">
+                <main className="flex-1 bg-surface p-8 overflow-auto">
                     <div className="mb-4">
                         <h2 className="text-3xl font-bold text-rose-700">Exception Handling in Java</h2>  
                         <p className='mt-4'>Exception handling in Java allows developers to effectively manage runtime errors using mechanisms such as .allows developers to manage runtime errors effectively by using mechanisms like try-catch block , finally block , throwing Exceptions , Custom Exception handling, etc.</p> 

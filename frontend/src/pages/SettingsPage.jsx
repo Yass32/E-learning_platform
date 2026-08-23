@@ -129,118 +129,94 @@ const SettingsPage = () => {
             {loading? (
                 <Loading />
             ) : (
-                <div>
-                    <div className="flex h-screen bg-gray-100 text-black">
-                        {/* Sidebar */}
-                        <SideBar name={fullName} profilePic={profilePicUrl} />
-                        
+                <div className="flex h-screen bg-surface text-ink-900">
+                    {/* Sidebar */}
+                    <SideBar name={fullName} profilePic={profilePicUrl} />
 
-                        {/* Main Content */}
-                        <div className='ml-[22%] flex-1 overflow-y-auto p-6 flex flex-col h-full'>
-                            <main className="grid grid-cols-3 my-auto">
-                                {/* Personal Information Form */}
-                                <section className='col-span-1 flex flex-col my-auto text-center'>
-                                    <h2 className="text-4xl font-bold text-gray-800">Personal Information</h2>
-                                    <p className="text-gray-400 text-lg">Use a permanent address where you can receive mail.</p>
-                                </section>
+                    {/* Main Content */}
+                    <div className='ml-[22%] flex-1 overflow-y-auto p-10'>
+                        <h1 className="text-4xl font-extrabold text-ink-900 mb-8">Settings</h1>
 
-                                <section className='col-span-2 flex flex-col my-auto text-2xl '>
-                                    <div className="mx-auto w-[80%]">
-                                        {/* Profile Picture Upload */}
-                                        <div className="flex items-center flex-row">
-                                            {/* Display the profile picture or a default icon if not available */}
-                                            {profilePicUrl !== "https://e-learning-platform-ioqt.onrender.comnull"? 
-                                                <img src={profilePicUrl} alt="Avatar"
-                                                className="w-24 h-24 rounded-full mb-4"/> 
-                                                :
-                                                <CgProfile className="w-20 h-20 text-gray-800"/>
-                                            }                                            
-                                            <div className='ml-6 text-lg'>
-                                                <input type="file" accept="image/*" onChange={handleProfilePicChange} /> <br/>
-                                                <button className="mt-2 text-white  bg-rose-600 rounded-md px-6 py-2 w-fit hover:bg-rose-800 transition-all duration-200" onClick={handleUploadProfilePic}>Upload</button>
-                                                {/*<p className="text-sm text-gray-500 mt-2">JPG, GIF, or PNG. 1MB max.</p>*/ }
-                                            </div>
-                                        </div>
+                        {/* Personal Information */}
+                        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+                            <div className="mb-6">
+                                <h2 className="text-xl font-bold text-ink-900">Personal Information</h2>
+                                <p className="text-gray-400 text-sm mt-1">Use a permanent address where you can receive mail.</p>
+                            </div>
 
-                                        {/* Form */}
-                                        <form className="flex-1 space-y-4" >
-                                            <div>
-                                                <label className="block text-gray-500 mb-1">Full name</label>
-                                                <input placeholder={fullName} 
-                                                type="text" onChange={(e) => setNewFullName(e.target.value)}
-                                                className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="block text-gray-500 mb-1">Email address</label>
-                                                <input placeholder={email}
-                                                type="email"  onChange={(e) => setNewEmail(e.target.value)}
-                                                className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="block text-gray-500 mb-1">Current password</label>
-                                                <input type="password" disabled
-                                                placeholder={getMaskedPassword(password)}
-                                                className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="block text-gray-500 mb-1">New password</label>
-                                                <input type="password" 
-                                                placeholder='Enter your new password'
-                                                className="w-full bg-gray-800 text-gray-300 border border-gray-700 rounded px-3 py-2"
-                                                value={newPassword}
-                                                onChange={(e) => setNewPassword(e.target.value)}
-                                                />
-                                            </div>
-                                            <button
-                                                onClick={handleUpdateInfo}
-                                                className="text-white bg-rose-600 rounded-md px-6 py-2 w-fit text-lg hover:bg-rose-800 transition-all duration-200"
-                                            >
-                                                Save
-                                            </button>
-                                        </form>
+                            {/* Profile Picture Upload */}
+                            <div className="flex items-center flex-row mb-8">
+                                {/* Display the profile picture or a default icon if not available */}
+                                {profilePicUrl !== "https://e-learning-platform-ioqt.onrender.comnull"?
+                                    <img src={profilePicUrl} alt="Avatar"
+                                    className="w-20 h-20 rounded-full object-cover ring-2 ring-rose-100"/>
+                                    :
+                                    <div className="w-20 h-20 rounded-full bg-surface flex items-center justify-center">
+                                        <CgProfile className="w-12 h-12 text-gray-400"/>
                                     </div>
-                                </section>
-                            </main>
-                        </div>
-                    </div>
+                                }
+                                <div className='ml-6 text-sm'>
+                                    <input type="file" accept="image/*" onChange={handleProfilePicChange}
+                                    className="block text-sm text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-rose-50 file:text-rose-700 hover:file:bg-rose-100 file:cursor-pointer cursor-pointer"/>
+                                    <button className="mt-3 text-white text-sm bg-rose-600 rounded-lg px-5 py-2 w-fit hover:bg-rose-700 transition-all duration-200 font-semibold" onClick={handleUploadProfilePic}>Upload</button>
+                                </div>
+                            </div>
 
+                            {/* Form */}
+                            <form className="max-w-lg space-y-4" onSubmit={(e) => e.preventDefault()}>
+                                <div>
+                                    <label className="block text-gray-600 text-sm font-semibold mb-1">Full name</label>
+                                    <input placeholder={fullName}
+                                    type="text" onChange={(e) => setNewFullName(e.target.value)}
+                                    className="w-full bg-white text-ink-900 placeholder:text-gray-400 border border-gray-200 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-gray-600 text-sm font-semibold mb-1">Email address</label>
+                                    <input placeholder={email}
+                                    type="email"  onChange={(e) => setNewEmail(e.target.value)}
+                                    className="w-full bg-white text-ink-900 placeholder:text-gray-400 border border-gray-200 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-gray-600 text-sm font-semibold mb-1">Current password</label>
+                                    <input type="password" disabled
+                                    placeholder={getMaskedPassword(password)}
+                                    className="w-full bg-gray-50 text-gray-400 border border-gray-200 rounded-lg px-3 py-2.5 cursor-not-allowed"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-gray-600 text-sm font-semibold mb-1">New password</label>
+                                    <input type="password"
+                                    placeholder='Enter your new password'
+                                    className="w-full bg-white text-ink-900 placeholder:text-gray-400 border border-gray-200 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition"
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                    />
+                                </div>
+                                <button
+                                    onClick={handleUpdateInfo}
+                                    className="text-white bg-rose-600 rounded-lg px-6 py-2.5 w-fit text-sm font-semibold hover:bg-rose-700 transition-all duration-200"
+                                >
+                                    Save changes
+                                </button>
+                            </form>
+                        </section>
 
-
-
-                    <div className="flex h-screen bg-gray-100 text-black justify-center items-center">
-                        <div className='ml-[22%] flex-1 w-full max-w-screen-xl mx-auto p-6'>
-                                        
-                            {/* Main Content */}
-                            <main className=" grid grid-cols-3 ">
-
-                                {/* Personal Information Form */}
-                                <section className='col-span-1 flex flex-col my-auto text-center '>
-                                    <h2 className="text-4xl font-bold text-gray-800">Delete account</h2>
-                                    <p className="text-gray-400 text-lg"> No longer want to use our service? You can delete your account here.  All information related to this account will be deleted permanently.</p>
-                                </section>
-
-                                <section className='col-span-2 flex flex-col my-auto'>
-                                    <div className=" mx-auto  w-[80%]">
-
-                                        {/* Form */}
-                                        <form className="flex-1 space-y-4 text-2xl" onSubmit={(e) => e.preventDefault()}>
-                                            <button
-                                                onClick={handleDeleteAccount}
-                                                className="px-6 py-2 bg-red-600 text-white rounded hover:bg-red-800"
-                                            >
-                                                Yes, delete my account
-                                            </button>
-                                        </form>
-                                    </div>
-                                </section>
-                            </main>
-                        </div>             
+                        {/* Danger Zone */}
+                        <section className="bg-red-50 rounded-2xl border border-red-200 p-8">
+                            <h2 className="text-xl font-bold text-red-700">Delete account</h2>
+                            <p className="text-red-500/80 text-sm mt-1 mb-5 max-w-lg">No longer want to use our service? You can delete your account here. All information related to this account will be deleted permanently.</p>
+                            <button
+                                onClick={handleDeleteAccount}
+                                className="px-5 py-2.5 bg-red-600 text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors duration-200"
+                            >
+                                Yes, delete my account
+                            </button>
+                        </section>
                     </div>
                 </div>
-            )}            
+            )}
         </>
     );
 }

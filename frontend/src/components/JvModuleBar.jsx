@@ -1,15 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import { LuChevronDown } from "react-icons/lu";
 import modules from "../pages/Languages/Java/JvModuleOverview.json";
-import { Link, useParams } from "react-router-dom";
-
+import { Link, useParams, useLocation } from "react-router-dom";
 
 const ModuleBar = () => {
-    const [activeSection, setActiveSection] = useState("");
-    const [open, setOpen] = useState(false);
+    const { pathname } = useLocation();
     const { student_id } = useParams(); // Extract student_id from the URL
-
+    const currentModule = modules.find((m) => m.lessons.some((l) => pathname.endsWith(l.path)));
+    const [activeSection, setActiveSection] = useState(currentModule?.name || "");
+    const [open, setOpen] = useState(pathname.includes("jvquizpage") || pathname.includes("javaex"));
 
     const toggle = () => {
         setOpen(!open);
@@ -19,50 +20,67 @@ const ModuleBar = () => {
     };
 
     return (
-        <div className="flex h-screen w-[22%] text-2xl">
+        <div className="w-[22%] shrink-0">
             {/* Sidebar */}
-            <div className="flex-col bg-gray-800 text-white transition-all duration-300 ">
-                <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/coursespage`}>
-                <IoIosArrowBack className="size-10 focus:outline-none hover:scale-105 text-white " />
-                </Link>
-                
+            <div className="w-[22%] h-screen bg-ink-950 text-cloud flex flex-col fixed overflow-y-auto border-r border-white/5">
+                <div className="flex items-center gap-2 p-4 border-b border-white/10">
+                    <Link to={`/${student_id}/coursespage`}
+                        className="flex items-center justify-center w-9 h-9 rounded-lg hover:bg-white/10 transition-colors">
+                        <IoIosArrowBack className="size-5 text-mist" />
+                    </Link>
+                    <span className="font-semibold text-sm text-mist">Java Course</span>
+                </div>
+
                 {/* Menu Items */}
-                {modules.map((module, index) => (
-                    <div key={index + 1}>
-                        <button className="w-full text-left px-4 py-2 hover:bg-gray-700"
-                        onClick={() => toggleSection(module.name)}>
-                            {module.name}
-                        </button>
-                        <div className={`overflow-hidden transition-all duration-300 ease-in-out 
-                        ${activeSection === module.name ? "max-h-40" : "max-h-0"}`}>
-                            {module.lessons.map(lesson => (
-                                <div className="ml-4" key={lesson.id}>
-                                    <ul>
-                                        <li className="py-1 px-2 hover:bg-gray-600">
-                                        <Link to={`https://e-learning-platform-client.onrender.com/${student_id}${lesson.path}`}>{lesson.name}</Link>                                        
-                                        </li>
-                                    </ul>
+                <div className="flex-1 py-2">
+                    {modules.map((module, index) => {
+                        const isOpen = activeSection === module.name;
+                        return (
+                            <div key={index + 1}>
+                                <button className="w-full flex items-center justify-between text-left px-4 py-2.5 text-sm font-semibold hover:bg-white/5 transition-colors"
+                                onClick={() => toggleSection(module.name)}>
+                                    {module.name}
+                                    <LuChevronDown className={`text-mist transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                                </button>
+                                <div className={`overflow-hidden transition-all duration-300 ease-in-out
+                                ${isOpen ? "max-h-96" : "max-h-0"}`}>
+                                    {module.lessons.map(lesson => {
+                                        const to = `/${student_id}${lesson.path}`;
+                                        const isActive = pathname === to;
+                                        return (
+                                            <Link key={lesson.id} to={to}
+                                               className={`block py-2 pl-8 pr-3 text-sm transition-colors ${
+                                                   isActive ? "bg-rose-600/15 text-rose-400" : "text-mist hover:bg-white/5 hover:text-cloud"
+                                               }`}>
+                                                {lesson.name}
+                                            </Link>
+                                        );
+                                    })}
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                            </div>
+                        );
+                    })}
 
-
-                <div>
-                    <button className="w-full text-left px-4 py-2 hover:bg-gray-700"  onClick={toggle} >
-                        Assessment
-                    </button>
-                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-40' : 'max-h-0'}`} >
-                        <div className="ml-4">
-                            <ul>
-                                <li className="py-1 px-2 hover:bg-gray-600">
-                                <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/jvquizpage`}>Quiz</Link>
-                                </li>
-                                <li className="py-1 px-2 hover:bg-gray-600">
-                                <Link to={`https://e-learning-platform-client.onrender.com/${student_id}/javaex1`}>Exercises</Link>
-                                </li>
-                            </ul>
+                    <div>
+                        <button className="w-full flex items-center justify-between text-left px-4 py-2.5 text-sm font-semibold hover:bg-white/5 transition-colors" onClick={toggle}>
+                            Assessment
+                            <LuChevronDown className={`text-mist transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+                        </button>
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-40' : 'max-h-0'}`}>
+                            {[
+                                { label: "Quiz", to: `/${student_id}/jvquizpage` },
+                                { label: "Exercises", to: `/${student_id}/javaex1` },
+                            ].map((item) => {
+                                const isActive = pathname === item.to;
+                                return (
+                                    <Link key={item.to} to={item.to}
+                                        className={`block py-2 pl-8 pr-3 text-sm transition-colors ${
+                                            isActive ? "bg-rose-600/15 text-rose-400" : "text-mist hover:bg-white/5 hover:text-cloud"
+                                        }`}>
+                                        {item.label}
+                                    </Link>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>

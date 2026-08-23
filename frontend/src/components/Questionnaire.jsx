@@ -52,10 +52,10 @@ const Questionnaire = () => {
             {loading? (<Loading />) : (
                 <div>
                     {recommendation? (
-                        <div className="p-4 bg-white shadow rounded-lg">
-                            <h2 className="text-2xl font-semibold">Recommendation:</h2>
-                            <pre className='text-wrap'>{recommendation}</pre>
-                            <button className="mt-2 mx-auto block rounded-md bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-xs hover:hover:bg-rose-800 transition-all duration-200" 
+                        <div className="p-6 bg-white shadow-sm border border-gray-100 rounded-2xl">
+                            <h2 className="text-xl font-bold text-ink-900 mb-2">Recommendation</h2>
+                            <pre className='text-wrap text-gray-600 text-sm leading-relaxed'>{recommendation}</pre>
+                            <button className="mt-4 mx-auto block rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-700 transition-all duration-200"
                             onClick={() => {
                                 setAnswers({});  // Reset answers
                                 setRecommendation("");  // Clear previous recommendation
@@ -72,11 +72,11 @@ const Questionnaire = () => {
                             <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
                                 <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                                     <DialogPanel transition
-                                    className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95">
+                                    className="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95">
                                         <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                         <div className="sm:flex sm:items-start">
                                             <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                            <DialogTitle as="h3" className="text-2xl font-semibold text-gray-900">
+                                            <DialogTitle as="h3" className="text-2xl font-bold text-ink-900">
                                                 Career Questionnaire
                                             </DialogTitle>
                                             <div className="mt-2">
@@ -94,7 +94,7 @@ const Questionnaire = () => {
                                                         {question.options.map((option, optionIndex) => (
                                                         <div
                                                             key={`${questionIndex}-${optionIndex}`} // Unique key for each option
-                                                            className="flex items-center p-4 bg-gray-100 border rounded-lg hover:border-rose-500 cursor-pointer"
+                                                            className="flex items-center p-3 bg-gray-50 border border-gray-200 rounded-lg hover:border-rose-400 hover:bg-rose-50/50 cursor-pointer transition-colors duration-150"
                                                         >
                                                             {/* Radio input for the option */}
                                                             <input
@@ -120,11 +120,11 @@ const Questionnaire = () => {
                                             </div>
                                         </div>
                                         </div>
-                                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                        <div className="bg-gray-50 px-4 py-4 sm:flex sm:flex-row-reverse sm:px-6">
                                             <button
                                                 type="button"
                                                 onClick={handleSubmit}
-                                                className="inline-flex w-full justify-center rounded-md bg-rose-600 px-3 py-2 font-semibold text-white shadow-xs hover:hover:bg-rose-800 transition-all duration-200 sm:ml-3 sm:w-auto"
+                                                className="inline-flex w-full justify-center rounded-lg bg-rose-600 px-4 py-2 font-semibold text-white shadow-sm hover:bg-rose-700 transition-all duration-200 sm:ml-3 sm:w-auto"
                                             >
                                                 Get Recommendation
                                             </button>
@@ -132,7 +132,7 @@ const Questionnaire = () => {
                                                 type="button"
                                                 data-autofocus
                                                 onClick={() => setOpen(false)}
-                                                className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                                className="inline-flex w-full justify-center rounded-lg bg-white px-4 py-2 font-semibold text-gray-700 ring-1 shadow-sm ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto mt-2"
                                             >
                                                 Cancel
                                             </button>
