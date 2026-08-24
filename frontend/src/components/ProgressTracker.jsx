@@ -16,8 +16,11 @@ const ProgressTracker = ({ children, totalLessons, lesson_id, course_id }) => {
             return; // Stop execution if any parameter is missing
         }
 
-        // Step 2: Retrieve the list of completed lessons for this student from local storage
-        const completedLessons = JSON.parse(localStorage.getItem(`completedLessons_${student_id}`)) || [];
+        // Step 2: Retrieve the list of completed lessons for this student and course from local storage
+        // Scoped per course_id because lesson ids restart at 1 for every course - a shared
+        // key would mix Python/JavaScript/Java lesson ids together and corrupt progress.
+        const storageKey = `completedLessons_${student_id}_${course_id}`;
+        const completedLessons = JSON.parse(localStorage.getItem(storageKey)) || [];
         console.log("Completed Lessons:", completedLessons);
 
         // Step 3: If the lesson is already completed, do nothing and return
@@ -27,27 +30,26 @@ const ProgressTracker = ({ children, totalLessons, lesson_id, course_id }) => {
         const updatedLessons = [...completedLessons, lesson_id];
 
         // Step 5: Save the updated list back to local storage
-        localStorage.setItem(`completedLessons_${student_id}`, JSON.stringify(updatedLessons));
+        localStorage.setItem(storageKey, JSON.stringify(updatedLessons));
 
         // Step 6: Calculate the progress percentage
         const progressPercentage = (updatedLessons.length / totalLessons) * 100;
         console.log(`Progress: ${progressPercentage}%`);
 
         // Step 7: Send the updated progress to the backend API
-        try {
-            axios.put(`${VITE_BACKEND_URL}/students/${student_id}/progress`, {
-                course_id: Number(course_id),  // Convert to number
-                progress_percentage: parseFloat(progressPercentage.toFixed(2)) // Round to 2 decimal places
-            })
-            .then((response) => console.log(response.data)) // Log the response if successful
-        } 
-        catch (error) {
+        axios.put(`${VITE_BACKEND_URL}/students/${student_id}/progress`, {
+            course_id: Number(course_id),  // Convert to number
+            progress_percentage: parseFloat(progressPercentage.toFixed(2)) // Round to 2 decimal places
+        })
+        .then((response) => console.log(response.data)) // Log the response if successful
+        .catch((error) => {
             // Step 8: Handle and log any errors from the API request
             console.error("Error updating progress:", error);
-            console.error("Response data:", error.response.data);
-            console.error("Response status:", error.response.status);
-            console.error("Response headers:", error.response.headers);
-        }
+            if (error.response) {
+                console.error("Response data:", error.response.data);
+                console.error("Response status:", error.response.status);
+            }
+        });
     }, [student_id, lesson_id, totalLessons, course_id]); // Dependency array ensures this runs when any of these values change
 
     // Step 9: Render children components inside this component

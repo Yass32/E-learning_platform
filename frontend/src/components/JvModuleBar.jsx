@@ -1,9 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { LuChevronDown } from "react-icons/lu";
+import { LuChevronDown, LuCircleCheck, LuCircle } from "react-icons/lu";
 import modules from "../pages/Languages/Java/JvModuleOverview.json";
 import { Link, useParams, useLocation } from "react-router-dom";
+
+const JAVA_COURSE_ID = 3;
 
 const ModuleBar = () => {
     const { pathname } = useLocation();
@@ -11,6 +13,11 @@ const ModuleBar = () => {
     const currentModule = modules.find((m) => m.lessons.some((l) => pathname.endsWith(l.path)));
     const [activeSection, setActiveSection] = useState(currentModule?.name || "");
     const [open, setOpen] = useState(pathname.includes("jvquizpage") || pathname.includes("javaex"));
+    // Read-only: actual progress is recorded by ProgressTracker (see App.jsx) as each
+    // lesson mounts. This just reflects that persisted state for the checkmarks below.
+    const [completedLessons] = useState(() =>
+        JSON.parse(localStorage.getItem(`completedLessons_${student_id}_${JAVA_COURSE_ID}`)) || []
+    );
 
     const toggle = () => {
         setOpen(!open);
@@ -47,12 +54,16 @@ const ModuleBar = () => {
                                     {module.lessons.map(lesson => {
                                         const to = `/${student_id}${lesson.path}`;
                                         const isActive = pathname === to;
+                                        // Filled once completed, or as soon as it's opened (the lesson
+                                        // you're currently viewing reads as "done" immediately).
+                                        const isDone = completedLessons.includes(lesson.id) || isActive;
                                         return (
                                             <Link key={lesson.id} to={to}
-                                               className={`block py-2 pl-8 pr-3 text-sm transition-colors ${
+                                               className={`flex items-center gap-2 py-2 pl-8 pr-3 text-sm transition-colors ${
                                                    isActive ? "bg-rose-600/15 text-rose-400" : "text-mist hover:bg-white/5 hover:text-cloud"
                                                }`}>
-                                                {lesson.name}
+                                                {isDone ? <LuCircleCheck className="text-rose-500 shrink-0" /> : <LuCircle className="opacity-40 shrink-0" />}
+                                                <span className="truncate">{lesson.name}</span>
                                             </Link>
                                         );
                                     })}

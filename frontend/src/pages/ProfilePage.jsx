@@ -93,8 +93,9 @@ const ProfilePage = () => {
             // Send a DELETE request to reset student's progress for the given course
             await axios.delete(`${VITE_BACKEND_URL}/students/${student_id}/progress/${course_id}`);
             
-            // Remove completed lessons data from localStorage
-            localStorage.removeItem(`completedLessons_${student_id}`);
+            // Remove completed lessons data from localStorage for this course only
+            // (the key is scoped per course_id - see ProgressTracker.jsx)
+            localStorage.removeItem(`completedLessons_${student_id}_${course_id}`);
 
             // Update the state: Reset progress for the selected course and show a success message
             setCourses(prevCourses =>

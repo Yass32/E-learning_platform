@@ -4,9 +4,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import { LuChevronDown, LuCircleCheck, LuCircle } from "react-icons/lu";
 import modules from "../pages/Languages/Python/ModuleOverview.json";
 import { Link, useParams, useLocation } from "react-router-dom";
-import axios from "axios";
 
-const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const PYTHON_COURSE_ID = 1;
 
 const ModuleBar = () => {
     const { pathname } = useLocation();
@@ -14,7 +13,11 @@ const ModuleBar = () => {
     const currentModule = modules.find((m) => m.lessons.some((l) => pathname.endsWith(l.path)));
     const [activeSection, setActiveSection] = useState(currentModule?.name || "");
     const [open, setOpen] = useState(pathname.includes("quizpage") || pathname.includes("pythonex"));
-    const [completedLessons, setCompletedLessons] = useState([]);
+    // Read-only: actual progress is recorded by ProgressTracker (see App.jsx) as each
+    // lesson mounts. This just reflects that persisted state for the checkmarks below.
+    const [completedLessons] = useState(() =>
+        JSON.parse(localStorage.getItem(`completedLessons_${student_id}_${PYTHON_COURSE_ID}`)) || []
+    );
 
     const toggle = () => {
         setOpen(!open);
@@ -22,28 +25,6 @@ const ModuleBar = () => {
 
     const toggleSection = (section) => {
         setActiveSection((prev) => (prev === section ? "" : section));
-    };
-
-    const handleLessonProgress = async (lesson_id) => {
-        if (completedLessons.includes(lesson_id)) {
-            return; // Lesson is already completed
-        }
-
-        setCompletedLessons((prev) => [...prev, lesson_id]);
-
-        let progress_percentage = ((completedLessons.length) / 13) * 100; // Fix progress calculation
-
-        try {
-            await axios.put(`${VITE_BACKEND_URL}/students/${student_id}/progress`, {
-                student_id: student_id,
-                course_id: 1,
-                progress_percentage: progress_percentage
-            });
-
-            console.log(`Progress updated: ${progress_percentage.toFixed(2)}%`);
-        } catch (error) {
-            console.error("Error updating progress:", error);
-        }
     };
 
     return (
@@ -74,10 +55,11 @@ const ModuleBar = () => {
                                     {module.lessons.map((lesson) => {
                                         const to = `/${student_id}${lesson.path}`;
                                         const isActive = pathname === to;
-                                        const isDone = completedLessons.includes(lesson.id);
+                                        // Filled once completed, or as soon as it's opened (the lesson
+                                        // you're currently viewing reads as "done" immediately).
+                                        const isDone = completedLessons.includes(lesson.id) || isActive;
                                         return (
                                             <Link key={lesson.id} to={to}
-                                               onClick={() => handleLessonProgress(lesson.id)}
                                                className={`flex items-center gap-2 py-2 pl-8 pr-3 text-sm transition-colors ${
                                                    isActive ? "bg-rose-600/15 text-rose-400" : "text-mist hover:bg-white/5 hover:text-cloud"
                                                }`}>
