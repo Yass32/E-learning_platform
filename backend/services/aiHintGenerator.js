@@ -9,6 +9,7 @@ export const getAIHint = async (code) => {
     // Log API key and URL for debugging
     console.log("OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY);
     console.log("API_URL:", process.env.API_URL); // Log the generated prompt for debugging
+    console.log("AI Model:", process.env.MODEL); // Log the AI model being used
 
     try {
         // Check if the API key is available in environment variables
@@ -24,7 +25,7 @@ export const getAIHint = async (code) => {
         const response = await axios.post(
             process.env.API_URL, // API endpoint from environment variables
             {  
-                model: "xiaomi/mimo-v2-flash:free", // AI model to use
+                model: process.env.MODEL, // AI model to use from environment variables
                 messages: [
                     { role: "system", content: "Give a short, non-spoiler hint to guide the user. Focus on logic, not full answers."}, // System role description
                     { role: "user", content: code } 

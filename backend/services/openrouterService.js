@@ -30,6 +30,7 @@ export const getAIRecommendation = async (userAnswers) => {
 
     console.log("OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY);
     console.log("API_URL:", process.env.API_URL); // Log the generated prompt for debugging
+    console.log("AI Model:", process.env.MODEL); // Log the AI model being used
 
     try {
         // Check if the API key is available in environment variables
@@ -45,7 +46,7 @@ export const getAIRecommendation = async (userAnswers) => {
         const response = await axios.post(
             process.env.API_URL, // Use the API URL from environment variables
             {  
-                model: "xiaomi/mimo-v2-flash:free", // AI model to use
+                model: process.env.MODEL, // AI model to use from environment variables
                 messages: [
                     { role: "system", content: "You are an AI assistant that provides concise and well-structured programming recommendations."}, // System role description
                     { role: "user", content: prompt } // User's request to the AI
